@@ -49,7 +49,12 @@ table.company
           strong.label 必須
         td.arrow_box
           | 住所
-        td.center = @eatery.address
+        td.center
+          = @eatery.prefecture
+          = @eatery.city
+          = @eatery.town
+          = @eatery.chome
+          = @eatery.building
       tr
         td
           strong.label 必須

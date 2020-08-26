@@ -34,7 +34,19 @@
           strong.label 必須
         td.arrow_box
           | 住所
-        td = text_field :eatery, :address
+        td
+          |（県）
+          = text_field :eatery, :prefecture, class: "address"
+          |（市）
+          = text_field :eatery, :city, class: "address"
+          br
+          |（町）
+          = text_field :eatery, :town, class: "address"
+          |（番地）
+          = text_field :eatery, :chome, class: "address"
+          br
+          |（ビル）
+          = text_field :eatery, :building, class: "address"
       tr
         td
           strong.label 必須

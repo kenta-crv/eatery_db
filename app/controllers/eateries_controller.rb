@@ -1,6 +1,5 @@
 class EateriesController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
-  before_action :before_search
     def index
       @q = Eatery.ransack(params[:q])
       @eateries = @q.result
@@ -48,6 +47,11 @@ class EateriesController < ApplicationController
       end
     end
 
+    def import
+      cnt = Eatery.import(params[:file])
+      redirect_to eateries_url, notice:"#{cnt}件登録されました。"
+    end
+
     private
     def eatery_params
       params.require(:eatery).permit(
@@ -55,7 +59,11 @@ class EateriesController < ApplicationController
         :store_kana,
         :url, #URL
         :tel, #電話番号
-        :address, #住所
+        :prefecture,
+        :city,
+        :town,
+        :chome,
+        :building,
         :payment, #支払方法
         :genre, #ジャンル
         :payment, #支払方法

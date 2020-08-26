@@ -16,7 +16,11 @@ br
        br
        = link_to eatery.tel, eatery_path(eatery), class:"index-text"
        br
-       = link_to eatery.address, eatery_path(eatery), class:"index-text"
+       = link_to eatery.prefecture, eatery_path(eatery)
+       = link_to eatery.city, eatery_path(eatery)
+       = link_to eatery.town, eatery_path(eatery)
+       = link_to eatery.chome, eatery_path(eatery)
+       = link_to eatery.building, eatery_path(eatery)
        br
        = link_to eatery.genre, eatery_path(eatery), class:"genre btn btn-default"
     -if admin_signed_in?

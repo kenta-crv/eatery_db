@@ -5,7 +5,12 @@ class CreateEateries < ActiveRecord::Migration[5.2]
       t.string :store_kana #テンポメイ
       t.string :url #URL
       t.string :tel #電話番号
-      t.string :address #住所
+       #t.string :address #住所
+      t.string :prefecture
+      t.string :city
+      t.string :town
+      t.string :chome
+      t.string :building
       t.string :genre #ジャンル
       t.string :payment #支払方法
       t.string :price_lunch #ランチ単価

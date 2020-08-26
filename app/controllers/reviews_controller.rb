@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :before_search
     def index
       @reviews = Review.all
     end

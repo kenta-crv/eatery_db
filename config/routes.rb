@@ -19,7 +19,11 @@ Rails.application.routes.draw do
      end
    end
 
-   resources :reviews 
+   resources :reviews do
+     collection do
+       post :import
+     end
+   end
 
    get 'contact' => 'contact#index'
    post 'confirm' =>'contact#confirm'

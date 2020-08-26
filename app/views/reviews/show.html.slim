@@ -57,12 +57,17 @@ br
            | 点
   table.company
    tbody
-    .col[width="25%"]
-    .col[width="25%"]
-    .col[width="25%"]
-    .col[width="25%"]
+    .col[width="18%"]
+    .col[width="18%"]
+    .col[width="18%"]
+    .col[width="18%"]
+    .col[width="18%"]
+    .col[width="18%"]
         tr
-          th.arrow_box リピート価値
+          th.arrow_box 訪問日
+          td
+            = @review.visited
+            th.arrow_box リピート価値
           td
             = @review.revisit
           th.arrow_box 平均単価

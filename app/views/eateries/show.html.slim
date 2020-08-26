@@ -184,6 +184,20 @@ br
     | レビュー
   .center
    = link_to "口コミを投稿", "/reviews/new" , class:"btn btn-warning"
+
+  table.company
+   - if @eatery.reviews.any?
+    tr
+      th
+        | レビュー一覧
+   - @eatery.reviews.each do |review|
+    tr
+      td
+       = review.title
+      td
+       = review.visited
+      td
+       = link_to "投稿を見る", review_path, class:"btn btn-danger"
   table.company
       tbody
         tr

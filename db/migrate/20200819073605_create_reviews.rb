@@ -17,6 +17,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.string :title #タイトル
       t.string :keyword #キーワード
       t.string :description #説明
+      t.date :visited #訪問日
       t.text :body #本文
       t.string :image_1 #本文
       t.string :image_2 #本文

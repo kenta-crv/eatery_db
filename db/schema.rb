@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_073605) do
     t.string "title"
     t.string "keyword"
     t.string "description"
+    t.date "visited"
     t.text "body"
     t.string "image_1"
     t.string "image_2"

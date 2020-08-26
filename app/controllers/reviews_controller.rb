@@ -40,6 +40,11 @@ class ReviewsController < ApplicationController
       end
     end
 
+    def import
+      cnt = Review.import(params[:file])
+      redirect_to eateries_url, notice:"#{cnt}件登録されました。"
+    end
+
     private
     def review_params
       params.require(:review).permit(
@@ -58,6 +63,7 @@ class ReviewsController < ApplicationController
         :keyword, #キーワード
         :description, #説明
         :body, #本文
+        :visited,
         :image_1, #ファイル
         :image_2, #ファイル
         :image_3, #ファイル

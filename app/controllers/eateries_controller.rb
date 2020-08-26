@@ -13,6 +13,7 @@ class EateriesController < ApplicationController
 
     def show
       @eatery = Eatery.find(params[:id])
+      @reviews = @eatery.reviews.build
     end
 
     def new

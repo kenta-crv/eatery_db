@@ -27,3 +27,19 @@
                  			            	data: { confirm: '本当に削除しますか？'}
         br
         hr
+
+- if admin_signed_in?
+ h2.headline  インポート
+ = form_tag import_reviews_path, multipart: true do
+  table.company
+      tbody
+        tr
+          th[colspan="3"]
+            | CSVファイルインポート
+        tr
+          td
+            = file_field_tag :file
+          th
+            = submit_tag "インポート",  class: 'btn btn-default'
+br
+br

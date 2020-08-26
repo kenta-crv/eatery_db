@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://eatery-japan.com"
+SitemapGenerator::Sitemap.default_host = "https://eatery-japan.com"
 
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
@@ -19,10 +19,13 @@ add "/" , changefreq: 'daily', priority: 1.0
   #
   # Examples:
   #
-  add stores_path, :priority => 0.7, :changefreq => 'daily'
+  add eateries_path, :priority => 1.0, :changefreq => 'daily'
+  Eatery.find_each do |eatery|
+    add eatery_path(eatery), :lastmod => eatery.updated_at
+  end
 
-  # '/articles/:id' を追加する
-  Store.find_each do |store|
-    add store_path(store), :lastmod => store.updated_at
+  add reviews_path, :priority => 1.0, :changefreq => 'daily'
+  Review.find_each do |review|
+    add review_path(review), :lastmod => review.updated_at
   end
 end

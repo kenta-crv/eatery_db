@@ -18,7 +18,7 @@ class Eatery < ApplicationRecord
        eatery = find_by(id: row["id"]) || new
        eatery.attributes = row.to_hash.slice(*updatable_attributes)
        #next if eatery.industry == nil
-       #next if self.where(tel: eatery.tel).where(industry: nil).count > 0
+       next if self.where(tel: eatery.tel).count > 0
        #next if self.where(tel: eatery.tel).where(industry: eatery.industry).count > 0
        eatery.save!
        save_cont += 1

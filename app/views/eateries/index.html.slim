@@ -30,9 +30,9 @@ br
    br
 = paginate(@eateries)
 
-= if admin_signed_in?
-h2.headline  インポート
-= form_tag import_eateries_path, multipart: true do
+- if admin_signed_in?
+ h2.headline  インポート
+ = form_tag import_eateries_path, multipart: true do
   table.company
       tbody
         tr

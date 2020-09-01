@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_073605) do
+ActiveRecord::Schema.define(version: 2020_09_01_034625) do
 
   create_table "admins", force: :cascade do |t|
     t.string "user_name"
@@ -112,6 +112,19 @@ ActiveRecord::Schema.define(version: 2020_08_19_073605) do
     t.datetime "updated_at", null: false
     t.index ["eatery_id"], name: "index_reviews_on_eatery_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "specials", force: :cascade do |t|
+    t.integer "admin_id"
+    t.string "title"
+    t.string "file"
+    t.string "choice"
+    t.string "keyword"
+    t.string "description"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_specials_on_admin_id"
   end
 
   create_table "stores", force: :cascade do |t|

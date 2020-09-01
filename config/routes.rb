@@ -25,6 +25,8 @@ Rails.application.routes.draw do
      end
    end
 
+   resources :specials
+
    get 'contact' => 'contact#index'
    post 'confirm' =>'contact#confirm'
    post 'thanks' => 'contact#thanks'

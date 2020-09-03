@@ -63,7 +63,7 @@ class ReviewsController < ApplicationController
         :keyword, #キーワード
         :description, #説明
         :body, #本文
-        :visited,
+        :day,
         :image_1, #ファイル
         :image_2, #ファイル
         :image_3, #ファイル

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_034625) do
+ActiveRecord::Schema.define(version: 2020_09_03_014729) do
 
   create_table "admins", force: :cascade do |t|
     t.string "user_name"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_09_01_034625) do
     t.string "image_10"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "day"
     t.index ["eatery_id"], name: "index_reviews_on_eatery_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

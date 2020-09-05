@@ -58,6 +58,7 @@ class ReviewsController < ApplicationController
         :original2,
         :original2_score, #旅行、デート、お酒、素材、独創性、の質等、様々なブログジャンルを確立出来る
         :revisit, #再訪したいレベルか？
+        :visited,
         :average_price, #平均金額
         :title, #タイトル
         :keyword, #キーワード

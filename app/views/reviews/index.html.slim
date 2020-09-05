@@ -16,11 +16,12 @@
           .col-sm-7.store_review
             .review-title
               = link_to review.title, review_path(review), class:"store"
-
-            = review.description.html_safe
-              - if admin_signed_in?
+            br
+            = review.description.to_s.html_safe
+            br
+            - if admin_signed_in?
                 = link_to '編集  ', edit_review_path(review), class: 'btn btn-warning'
-                = link_to '  削除',
+                = link_to '削除',
                  			            	review_path(review),
                  			            	method: :delete,
                  			            	class: 'btn btn-warning',

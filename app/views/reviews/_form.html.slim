@@ -5,28 +5,28 @@
         th.arrow_box
            | 美味しさ
         td
-           = select_tag :delicious_score, options_for_select((1..100).to_a)
+           = f.select :delicious_score, Review.ScoreNumbers
            | 点
         th.arrow_box
            | ムード
         td
-           = select_tag :mood_score , options_for_select((1..100).to_a)
+           = f.select :mood_score, Review.ScoreNumbers
            | 点
         th.arrow_box
            | CP
         td
-           = select_tag :cost_performance_score , options_for_select((1..100).to_a)
+           = f.select :cost_performance_score, Review.ScoreNumbers
            | 点
         th.arrow_box
            | サービス
         td
-           = select_tag :service_score, options_for_select((1..100).to_a)
+           = f.select :service_score, Review.ScoreNumbers
            | 点
       tr
         th.arrow_box
            | 創造性
         td
-           = select_tag :imagination_score, options_for_select((1..100).to_a)
+           = f.select :imagination_score, Review.ScoreNumbers
            | 点
         th.arrow_box
            = f.select(:original1,[\
@@ -38,7 +38,7 @@
            ["独創性","独創性"],
           ])
         td
-           = select_tag :original1_score , options_for_select((1..100).to_a)
+           = f.select :original1_score, Review.ScoreNumbers
            | 点
         th.arrow_box
            = f.select(:original1,[\
@@ -50,7 +50,7 @@
            ["独創性","独創性"],
           ])
         td
-           = select_tag :original2_score , options_for_select((1..100).to_a)
+           = f.select :original2_score, Review.ScoreNumbers
            | 点
         th.arrow_box
            | 総合点
@@ -61,9 +61,9 @@
      tbody
       tr
         th.arrow_box 訪問日
-        td = date_field_tag :visited
+        td = f.date_field :visited
         th.arrow_box 再訪問したいですか？
-        td = check_box_tag :revisit
+        td = f.check_box :revisit
         th.arrow_box 平均単価
         td
           = f.select(:average_price,[\

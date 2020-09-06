@@ -9,7 +9,7 @@ class Eatery < ApplicationRecord
   mount_uploader :image_8, ImagesUploader
   mount_uploader :image_9, ImagesUploader
   mount_uploader :image_10, ImagesUploader
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   #eatery_import
   def self.import(file)

@@ -1,23 +1,37 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+    before_action :set_eatery
+    before_action :set_review, only: [:show,:edit,:update,:destroy]
+    before_action :authenticate_user!, except: [:index, :show]
     def index
       @reviews = Review.all
+      @eateries = Eatery.all
     end
 
     def show
       @review = Review.find(params[:id])
+      @eatery = Eatery.find(params[:id])
     end
 
     def new
-      @review = Review.new
+      @review = @current_eatery.reviews.build
+      #@review = Review.new
+      #@eatery = Eatery.find(params[:eatery_id])
     end
 
     def create
-      @review = Review.new(review_params)
+      #@eatery = Eatery.find(params[:eatery_id])
+      #@review = Review.new(review_params)
+      #if @review.save
+      #  redirect_to reviews_path
+      #else
+      #  render 'new'
+      #end
+      @review = @current_eatery.reviews.build(review_params)
+      #if @review = @eatery.reviews.create(review_params)
       if @review.save
         redirect_to reviews_path
       else
-        render 'new'
+        "new"
       end
     end
 
@@ -46,6 +60,10 @@ class ReviewsController < ApplicationController
     end
 
     private
+    def set_review
+      @review = @current_eatery.reviews.find(params[:id])
+    end
+
     def review_params
       params.require(:review).permit(
         :delicious_score, #美味しさ
@@ -75,6 +93,26 @@ class ReviewsController < ApplicationController
         :image_8, #ファイル
         :image_9, #ファイル
         :image_10, #ファイル
+        :image_11,
+        :image_12,
+        :image_13,
+        :image_14,
+        :image_15,
+        :image_16,
+        :image_17,
+        :image_18,
+        :image_19,
+        :image_20,
+        :image_21,
+        :image_22,
+        :image_23,
+        :image_24,
+        :image_25,
+        :image_26,
+        :image_27,
+        :image_28,
+        :image_29,
+        :image_30,
         )
     end
 end

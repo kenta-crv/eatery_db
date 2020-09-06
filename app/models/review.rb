@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-  #belongs_to :eatery
-  #belongs_to :user
+  belongs_to :eatery
+  belongs_to :user, optional: true
   mount_uploader :image_1, FilesUploader
   mount_uploader :image_2, FilesUploader
   mount_uploader :image_3, FilesUploader
@@ -11,6 +11,26 @@ class Review < ApplicationRecord
   mount_uploader :image_8, FilesUploader
   mount_uploader :image_9, FilesUploader
   mount_uploader :image_10, FilesUploader
+  mount_uploader :image_11, FilesUploader
+  mount_uploader :image_12, FilesUploader
+  mount_uploader :image_13, FilesUploader
+  mount_uploader :image_14, FilesUploader
+  mount_uploader :image_15, FilesUploader
+  mount_uploader :image_16, FilesUploader
+  mount_uploader :image_17, FilesUploader
+  mount_uploader :image_18, FilesUploader
+  mount_uploader :image_19, FilesUploader
+  mount_uploader :image_20, FilesUploader
+  mount_uploader :image_21, FilesUploader
+  mount_uploader :image_22, FilesUploader
+  mount_uploader :image_23, FilesUploader
+  mount_uploader :image_24, FilesUploader
+  mount_uploader :image_25, FilesUploader
+  mount_uploader :image_26, FilesUploader
+  mount_uploader :image_27, FilesUploader
+  mount_uploader :image_28, FilesUploader
+  mount_uploader :image_29, FilesUploader
+  mount_uploader :image_30, FilesUploader
 
   def  self.import(file)
     save_cnt = 0

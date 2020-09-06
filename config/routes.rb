@@ -14,16 +14,18 @@ Rails.application.routes.draw do
 
    root to: 'eateries#index'
    resources :eateries do
+     resources :reviews do
+     end
      collection do
        post :import
      end
    end
 
-   resources :reviews do
-     collection do
-       post :import
-     end
-   end
+  # resources :reviews do
+  #   collection do
+  #     post :import
+  #   end
+  # end
 
    resources :specials
 

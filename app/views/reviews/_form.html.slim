@@ -1,4 +1,5 @@
-= form_for @review do |f|
+ = form_for ([@current_eatery, @review]) do |f|
+
    table.company
      tbody
       tr
@@ -124,8 +125,28 @@
          = f.file_field :image_8
          = f.file_field :image_9
          = f.file_field :image_10
+         = f.file_field :image_11
+         = f.file_field :image_12
+         = f.file_field :image_13
+         = f.file_field :image_14
+         = f.file_field :image_15
+         = f.file_field :image_16
+         = f.file_field :image_17
+         = f.file_field :image_18
+         = f.file_field :image_19
+         = f.file_field :image_20
+         = f.file_field :image_21
+         = f.file_field :image_22
+         = f.file_field :image_23
+         = f.file_field :image_24
+         = f.file_field :image_25
+         = f.file_field :image_26
+         = f.file_field :image_27
+         = f.file_field :image_28
+         = f.file_field :image_29
+         = f.file_field :image_30
       tr.center
         td[colspan="2"] = f.submit '投稿する'
 
-script
+  script
   | var editor = new FroalaEditor('#example')

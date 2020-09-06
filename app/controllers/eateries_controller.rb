@@ -91,6 +91,6 @@ class EateriesController < ApplicationController
         :image_8,
         :image_9,
         :image_10
-        )
+        )&.merge(user: current_user)
     end
 end

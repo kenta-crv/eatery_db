@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_014729) do
+ActiveRecord::Schema.define(version: 2020_09_06_062020) do
 
   create_table "admins", force: :cascade do |t|
     t.string "user_name"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_014729) do
     t.string "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_eateries_on_user_id"
   end
 
   create_table "eaterists", force: :cascade do |t|
@@ -111,6 +113,26 @@ ActiveRecord::Schema.define(version: 2020_09_03_014729) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "day"
+    t.string "image_11"
+    t.string "image_12"
+    t.string "image_13"
+    t.string "image_14"
+    t.string "image_15"
+    t.string "image_16"
+    t.string "image_17"
+    t.string "image_18"
+    t.string "image_19"
+    t.string "image_20"
+    t.string "image_21"
+    t.string "image_22"
+    t.string "image_23"
+    t.string "image_24"
+    t.string "image_25"
+    t.string "image_26"
+    t.string "image_27"
+    t.string "image_28"
+    t.string "image_29"
+    t.string "image_30"
     t.index ["eatery_id"], name: "index_reviews_on_eatery_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

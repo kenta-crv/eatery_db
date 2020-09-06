@@ -5,6 +5,7 @@ br
 br
 br
 #review-detail
+  = link_to "一覧に戻る", reviews_path
   .fr-view
 	  h1.headline-first  = @review.title
   br
@@ -73,40 +74,85 @@ br
           th.arrow_box 平均単価
           td
             = @review.average_price
-
+  br
+  h1.headline-first.center  = @eatery.store
   .fr-view
        .body-base  = @review.body.html_safe
   .row.center
-   .col-sm-1
-   .col-sm-5
       = image_tag @review.image_2.to_s, width:"90%"
-   .col-sm-5
       = image_tag @review.image_3.to_s, width:"90%"
-   .col-sm-1
-  .row.center
-   .col-sm-1
-   .col-sm-5
       = image_tag @review.image_4.to_s, width:"90%"
-   .col-sm-5
       = image_tag @review.image_5.to_s, width:"90%"
-   .col-sm-1
-  .row.center
-   .col-sm-1
-   .col-sm-5
       = image_tag @review.image_6.to_s, width:"90%"
-   .col-sm-5
       = image_tag @review.image_7.to_s, width:"90%"
-   .col-sm-1
-  .row.center
-   .col-sm-1
-   .col-sm-5
       = image_tag @review.image_8.to_s, width:"90%"
-   .col-sm-5
       = image_tag @review.image_9.to_s, width:"90%"
-   .col-sm-1
-  .row.center
-   .col-sm-1
-   .col-sm-5
       = image_tag @review.image_10.to_s, width:"90%"
-   .col-sm-5
-   .col-sm-1
+      = image_tag @review.image_11.to_s, width:"90%"
+      = image_tag @review.image_12.to_s, width:"90%"
+      = image_tag @review.image_13.to_s, width:"90%"
+      = image_tag @review.image_14.to_s, width:"90%"
+      = image_tag @review.image_15.to_s, width:"90%"
+      = image_tag @review.image_16.to_s, width:"90%"
+      = image_tag @review.image_17.to_s, width:"90%"
+      = image_tag @review.image_18.to_s, width:"90%"
+      = image_tag @review.image_19.to_s, width:"90%"
+      = image_tag @review.image_20.to_s, width:"90%"
+      = image_tag @review.image_21.to_s, width:"90%"
+      = image_tag @review.image_22.to_s, width:"90%"
+      = image_tag @review.image_23.to_s, width:"90%"
+      = image_tag @review.image_24.to_s, width:"90%"
+      = image_tag @review.image_25.to_s, width:"90%"
+      = image_tag @review.image_26.to_s, width:"90%"
+      = image_tag @review.image_27.to_s, width:"90%"
+      = image_tag @review.image_28.to_s, width:"90%"
+      = image_tag @review.image_29.to_s, width:"90%"
+      = image_tag @review.image_30.to_s, width:"90%"
+
+table.company
+   colgroup
+     col width="10%"
+     col width="20%"
+     col width="70%"
+     tbody
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 店舗名
+        td.center = @eatery.store
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | テンポメイ
+        td.center = @eatery.store_kana
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | URL
+        td.center = @eatery.url
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 電話番号
+        td.center = @eatery.tel
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | 住所
+        td.center
+          = @eatery.prefecture
+          = @eatery.city
+          = @eatery.town
+          = @eatery.chome
+          = @eatery.building
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | ジャンル
+        td.center = @eatery.genre

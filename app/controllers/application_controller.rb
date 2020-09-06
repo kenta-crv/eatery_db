@@ -5,6 +5,14 @@ before_action :before_search
     @eateries = @q.result
   end
 
+  def set_eatery
+    @current_eatery = current_user.eateries.find(params[:eatery_id])
+  end
+
+  def current_eatery
+    @current_eatery
+  end
+
   def after_sign_in_path_for(resource)
     case resource
     when Admin

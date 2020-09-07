@@ -1,4 +1,5 @@
 class EateriesController < ApplicationController
+  before_action :set_eatery
   before_action :authenticate_admin!, except: [:index, :show]
     def index
       @q = Eatery.ransack(params[:q])
@@ -13,7 +14,7 @@ class EateriesController < ApplicationController
 
     def show
       @eatery = Eatery.find(params[:id])
-      @reviews = @eatery.reviews.build(params[:review_id])
+      @review = @eatery.reviews.build(params[:review_id])
     end
 
     def new
@@ -91,6 +92,6 @@ class EateriesController < ApplicationController
         :image_8,
         :image_9,
         :image_10
-        )&.merge(user: current_user)
+        )
     end
 end

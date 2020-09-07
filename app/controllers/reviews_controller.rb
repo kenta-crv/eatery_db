@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
     before_action :set_eatery
-    before_action :set_review, only: [:show,:edit,:update,:destroy]
+    #before_action :set_review, only: [:show,:edit,:update,:destroy]
     before_action :authenticate_user!, except: [:index, :show]
     def index
       @reviews = Review.all
-      @eateries = Eatery.all
+      #@eateries = Eatery.all
     end
 
     def show
@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
       @review = @current_eatery.reviews.build(review_params)
       #if @review = @eatery.reviews.create(review_params)
       if @review.save
-        redirect_to reviews_path
+        redirect_to eatery_reviews_path
       else
         "new"
       end
@@ -60,9 +60,9 @@ class ReviewsController < ApplicationController
     end
 
     private
-    def set_review
-      @review = @current_eatery.reviews.find(params[:id])
-    end
+    #def set_review
+  #    @review = @current_eatery.reviews.find(id: params[:id])
+  #  end
 
     def review_params
       params.require(:review).permit(

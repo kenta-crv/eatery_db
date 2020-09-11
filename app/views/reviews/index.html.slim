@@ -15,7 +15,7 @@
             = image_tag review.image_1.to_s, width:"85%"
           .col-sm-7.store_review
             .review-title
-              = link_to review.title, eatery_review_path(@current_eatery, review), class:"store"
+              = link_to review.title, eatery_review_path(review), class:"store"
             br
             = review.description.to_s.html_safe
             br
@@ -28,19 +28,3 @@
                  			            	data: { confirm: '本当に削除しますか？'}
         br
         hr
-
-- if admin_signed_in?
- h2.headline  インポート
- = form_tag import_eateries_path, multipart: true do
-  table.company
-      tbody
-        tr
-          th[colspan="3"]
-            | CSVファイルインポート
-        tr
-          td
-            = file_field_tag :file
-          th
-            = submit_tag "インポート",  class: 'btn btn-default'
-br
-br

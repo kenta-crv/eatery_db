@@ -15,17 +15,15 @@ Rails.application.routes.draw do
    root to: 'eateries#index'
    resources :eateries do
      resources :reviews do
+       collection do
+         post :import
+         post :review_import
+       end
      end
      collection do
        post :import
      end
    end
-
-  # resources :reviews do
-  #   collection do
-  #     post :import
-  #   end
-  # end
 
    resources :specials
 

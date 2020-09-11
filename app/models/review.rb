@@ -32,14 +32,15 @@ class Review < ApplicationRecord
   mount_uploader :image_29, FilesUploader
   mount_uploader :image_30, FilesUploader
 
-  def  self.import(file)
+  def  self.review_import(review_file)
     save_cnt = 0
-    CSV.foreach(file.path, headers: true) do |row|
+    CSV.foreach(review_file.path, headers: true) do |row|
       review = Review.find_by(id: row["id"]) || new
       eatery = Eatery.find_by(tel: row["tel"])
       review.attributes = row.to_hash.slice(*review_attributes)
       review.eatery_id = eatery&.id
       review.save!
+      binding.pry
       save_cnt += 1
     end
     save_cnt

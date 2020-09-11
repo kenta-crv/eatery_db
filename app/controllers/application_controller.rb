@@ -13,6 +13,14 @@ before_action :before_search
     @current_eatery
   end
 
+  def set_user
+    @current_user = User.find_by(id: params[:user_id])
+  end
+
+  def current_user
+    @current_user
+  end
+
   def after_sign_in_path_for(resource)
     case resource
     when Admin

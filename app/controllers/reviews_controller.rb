@@ -1,15 +1,15 @@
 class ReviewsController < ApplicationController
     before_action :set_eatery
+    before_action :set_user
     #before_action :set_review, only: [:show,:edit,:update,:destroy]
     before_action :authenticate_user!, except: [:index, :show]
     def index
       @reviews = Review.all
-      #@eateries = Eatery.all
     end
 
     def show
-      @review = Review.find(params[:id])
-      @eatery = Eatery.find(params[:id])
+      @eatery = Eatery.find(params[:eatery_id])
+      @review = Review.find_by(id: params[:id], eatery_id: @eatery.id)
     end
 
     def new
@@ -52,11 +52,6 @@ class ReviewsController < ApplicationController
       else
         render 'edit'
       end
-    end
-
-    def import
-      cnt = Review.import(params[:file])
-      redirect_to eateries_url, notice:"#{cnt}件登録されました。"
     end
 
     private

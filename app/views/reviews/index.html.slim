@@ -1,6 +1,6 @@
-- set_meta_tags  title: 'テレアポ代行のノウハウ知ろう｜株式会社Ri-Plus'
-- set_meta_tags  keyword: 'テレアポ代行,ノウハウ'
-- set_meta_tags  description: 'テレアポ代行のノウハウや選び方、基礎知識を紹介しています。'
+- set_meta_tags  title: '@review.title'
+- set_meta_tags  keyword: '@eatery.title'
+- set_meta_tags  description: '@review.description'
 
 
 .index-wrapper
@@ -15,14 +15,14 @@
             = image_tag review.image_1.to_s, width:"85%"
           .col-sm-7.store_review
             .review-title
-              = link_to review.title, eatery_review_path(review), class:"store"
+            /  = link_to review.title, eatery_review_path(review), class:"store"
             br
             = review.description.to_s.html_safe
             br
             - if admin_signed_in?
-                = link_to '編集  ', edit_eatery_review_path(@current_eatery, review), class: 'btn btn-warning'
+                = link_to '編集  ', edit_eatery_review_path(@eatery, review), class: 'btn btn-warning'
                 = link_to '削除',
-                 			            	eatery_review_path(@current_eatery,review),
+                 			            	eatery_review_path(@eatery,review),
                  			            	method: :delete,
                  			            	class: 'btn btn-warning',
                  			            	data: { confirm: '本当に削除しますか？'}

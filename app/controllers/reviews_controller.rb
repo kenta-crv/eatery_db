@@ -4,7 +4,9 @@ class ReviewsController < ApplicationController
     #before_action :set_review, only: [:show,:edit,:update,:destroy]
     before_action :authenticate_user!, except: [:index, :show]
     def index
-      @reviews = Review.all
+      @user = User.find(params[:user_id])
+      @eatery = Eatery.find(params[:eatery_id])
+      @reviews = @user.reviews.all
     end
 
     def show

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
    root to: 'eateries#index'
    resources :eateries do
-     resources :reviews do
+     resources :reviews, except: [:index] do
        collection do
          post :import
          post :review_import
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
        post :import
      end
    end
+
+   resources :reviews, only: [:index]
 
    resources :specials
 

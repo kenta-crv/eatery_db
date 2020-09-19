@@ -40,7 +40,6 @@ class Review < ApplicationRecord
       review.attributes = row.to_hash.slice(*review_attributes)
       review.eatery_id = eatery&.id
       review.save!
-      binding.pry
       save_cnt += 1
     end
     save_cnt

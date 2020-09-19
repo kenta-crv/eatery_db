@@ -54,10 +54,10 @@ class EateriesController < ApplicationController
       redirect_to eateries_url, notice:"#{cnt}件登録されました。"
     end
 
-    def review_import
-      cnt = Review.review_import(params[:review_file])
-      redirect_to eateries_url, notice:"#{cnt}件登録されました。"
-    end
+    #def review_import
+    #  cnt = Review.review_import(params[:review_file])
+    #  redirect_to eateries_url, notice:"#{cnt}件登録されました。"
+    #end
 
     private
     def eatery_params

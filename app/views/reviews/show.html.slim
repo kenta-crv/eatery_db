@@ -4,14 +4,44 @@
 br
 br
 br
+.swiper-container
+  .swiper-wrapper
+    .swiper-slide
+      | Slide 1
+    .swiper-slide
+      | Slide 2
+    .swiper-slide
+      | Slide 3
+  .swiper-pagination
+  .swiper-button-prev
+  .swiper-button-next
+  .swiper-scrollbar
+
 #review-detail
   = link_to "一覧に戻る", eatery_reviews_path
   .fr-view
 	  h1.headline-first  = @review.title
+  - if admin_signed_in?
+   table.company
+    tr
+     td
+      = link_to "https://tabelog.com/setting/review_manage/draft_lst/", target:"_blank" do
+        = image_tag "tabelog.png", width:"100px";
+     td
+      = link_to "https://retty.me/", target:"_blank" do
+        = image_tag "retty.png", width:"100px";
+     td
+      = link_to "https://www.google.co.jp/maps/?hl=ja", target:"_blank" do
+        = image_tag "google.png", width:"100px";
+     td
+      = link_to "https://www.instagram.com/", target:"_blank" do
+        = image_tag "instagram.png", width:"100px";
+     td
+      = link_to "https://twitter.com/compose/tweet", target:"_blank" do
+        = image_tag "twitter.png", width:"100px";
   br
-  .fr-view
-       - if @review.image_1?
-        .image_review.center  = image_tag @review.image_1.url
+  .center
+   = image_tag @review.image_1.to_s, width:"70%"
   br
   table.company
      tbody

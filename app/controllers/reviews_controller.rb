@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
     #before_action :set_review, only: [:show,:edit,:update,:destroy]
     before_action :authenticate_user!, except: [:index, :show]
     def index
-      @reviews = Review.all
+      #@reviews = Review.all
+      @reviews = Review.published.order("created_at DESC").page(params[:page]).per(30)
     end
 
     def show
@@ -29,7 +30,7 @@ class ReviewsController < ApplicationController
       @review = @current_eatery.reviews.build(review_params)
       #if @review = @eatery.reviews.create(review_params)
       if @review.save
-        redirect_to eatery_reviews_path
+        redirect_to reviews_path
       else
         "new"
       end
@@ -59,6 +60,10 @@ class ReviewsController < ApplicationController
       redirect_to reviews_url, notice:"#{cnt}件登録されました。"
     end
 
+    def confirm
+      @reviews = Review.draft.order("created_at DESC")
+    end
+
     private
     #def set_review
   #    @review = @current_eatery.reviews.find(id: params[:id])
@@ -83,7 +88,6 @@ class ReviewsController < ApplicationController
         :description, #説明
         :body, #本文
         :day,
-        :image_1, #ファイル
         :image_2, #ファイル
         :image_3, #ファイル
         :image_4, #ファイル
@@ -113,6 +117,8 @@ class ReviewsController < ApplicationController
         :image_28,
         :image_29,
         :image_30,
+        :status,
+        {image_1: []}
         )
     end
 end

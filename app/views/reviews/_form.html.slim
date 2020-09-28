@@ -145,6 +145,10 @@
          = f.file_field :image_28
          = f.file_field :image_29
          = f.file_field :image_30
+      tr
+       th 公開
+       td
+        = f.select :status, Review.statuses.keys.map { |k| [t("enums.review.status.#{k}"),k]}
       tr.center
         td[colspan="2"] = f.submit '投稿する'
 

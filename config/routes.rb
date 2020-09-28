@@ -24,6 +24,7 @@ Rails.application.routes.draw do
    resources :reviews, only: [:index] do
      collection do
        post :review_import
+       get :'confirm'
      end
    end
 

@@ -12,8 +12,6 @@ br
 .center
  = image_tag @eatery.image_1.to_s, width: "50%"
 
-br
-br
 table.company
    colgroup
      col width="10%"
@@ -21,32 +19,22 @@ table.company
      col width="70%"
      tbody
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 店舗名
         td.center = @eatery.store
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | テンポメイ
         td.center = @eatery.store_kana
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | URL
         td.center = @eatery.url
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 電話番号
         td.center = @eatery.tel
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 住所
         td.center
@@ -56,86 +44,58 @@ table.company
           = @eatery.chome
           = @eatery.building
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | ジャンル
         td.center = @eatery.genre
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 支払方法
         td.center = @eatery.payment
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | ランチ単価
         td.center = @eatery.price_lunch
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | ディナー単価
         td.center = @eatery.price_dinner
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 営業時間
         td.center = @eatery.hour
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 定休日
         td.center = @eatery.holiday
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 難易度
         td.center = @eatery.difficulty
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 予約方法
         td.center = @eatery.bookking
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 席数
         td.center = @eatery.sit
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | オープン日
         td.center = @eatery.open
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | シェフ
         td.center = @eatery.chef
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | キャリア
         td.center = @eatery.career
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | 備考
         td.center = @eatery.remarks
       tr
-        td
-          strong.label 必須
         td.arrow_box
           | テイクアウト
         td.center = @eatery.takeout
@@ -178,8 +138,10 @@ br
  .col-sm-1
 br
 br
-.tops-wrapper
-br
+
+- if admin_signed_in?
+
+ br
   h2.headline
     | レビュー
   .center
@@ -198,8 +160,3 @@ br
        = review.visited
       td
        = link_to "投稿を見る", eatery_review_path(@eatery, review), class:"btn btn-danger"
-  table.company
-      tbody
-        tr
-          th[colspan="3"]
-            | CSVファイルインポート

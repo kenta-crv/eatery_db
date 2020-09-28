@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_062020) do
+ActiveRecord::Schema.define(version: 2020_09_27_014636) do
 
   create_table "admins", force: :cascade do |t|
     t.string "user_name"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2020_09_06_062020) do
     t.string "image_28"
     t.string "image_29"
     t.string "image_30"
+    t.integer "status", default: 0, null: false
     t.index ["eatery_id"], name: "index_reviews_on_eatery_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

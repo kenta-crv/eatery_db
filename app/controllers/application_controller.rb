@@ -24,9 +24,9 @@ before_action :before_search
   def after_sign_in_path_for(resource)
     case resource
     when Admin
-      "/admin/#{current_admin.id}" #決済画面へ
+      reviews_path
     when User
-      "/users/#{current_user.id}" #決済画面へ
+      "/users/#{current_user.id}"
     else
       super
     end

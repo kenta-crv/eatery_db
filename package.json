@@ -1,5 +1,7 @@
 {
   "name": "eatery",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "swiper": "^6.3.1"
+  }
 }

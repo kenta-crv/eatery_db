@@ -121,4 +121,19 @@ class Review < ApplicationRecord
   def self.ScoreNumbers
     @@ScoreNumbers
   end
+
+  def self.create_reviews_by(review_params)
+    return false if review_params[:image_1].nil?
+    Review.transaction do
+      review_params[:image_1].each do |review|
+        new_review = Review.new(image_1: review)
+        return false unless new_review.save!
+      end
+    end
+    true
+  end
+
+  enum status: {draft: 0, published: 1}
+  #has_one_attached :image
+  #has_rich_text :body
 end

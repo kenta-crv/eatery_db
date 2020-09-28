@@ -14,7 +14,6 @@ class EateriesController < ApplicationController
 
     def show
       @eatery = Eatery.find(params[:id])
-      #@review = @eatery.reviews.build(params[:review_id])
     end
 
     def new
@@ -24,7 +23,7 @@ class EateriesController < ApplicationController
     def create
       @eatery = Eatery.new(eatery_params)
       if @eatery.save
-        redirect_to eateries_path
+        redirect_to new_eatery_review_path(id: params[:id], eatery_id: @eatery.id)
       else
         render 'new'
       end
@@ -57,7 +56,7 @@ class EateriesController < ApplicationController
     #def review_import
     #  cnt = Review.review_import(params[:review_file])
     #  redirect_to eateries_url, notice:"#{cnt}件登録されました。"
-    #end
+    #endz
 
     private
     def eatery_params

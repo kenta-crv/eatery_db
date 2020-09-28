@@ -42,7 +42,6 @@
 //= require jquery
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-sprockets
 
 
 $(function() {
@@ -56,3 +55,18 @@ $(function() {
         }
     });
 });
+
+
+var Swiper = new Swiper('.swiper-container', {
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+})

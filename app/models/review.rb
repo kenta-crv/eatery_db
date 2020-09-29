@@ -2,35 +2,8 @@ class Review < ApplicationRecord
   belongs_to :eatery
   belongs_to :user, optional: true
   mount_uploader :image_1, FilesUploader
-  mount_uploader :image_2, FilesUploader
-  mount_uploader :image_3, FilesUploader
-  mount_uploader :image_4, FilesUploader
-  mount_uploader :image_5, FilesUploader
-  mount_uploader :image_6, FilesUploader
-  mount_uploader :image_7, FilesUploader
-  mount_uploader :image_8, FilesUploader
-  mount_uploader :image_9, FilesUploader
-  mount_uploader :image_10, FilesUploader
-  mount_uploader :image_11, FilesUploader
-  mount_uploader :image_12, FilesUploader
-  mount_uploader :image_13, FilesUploader
-  mount_uploader :image_14, FilesUploader
-  mount_uploader :image_15, FilesUploader
-  mount_uploader :image_16, FilesUploader
-  mount_uploader :image_17, FilesUploader
-  mount_uploader :image_18, FilesUploader
-  mount_uploader :image_19, FilesUploader
-  mount_uploader :image_20, FilesUploader
-  mount_uploader :image_21, FilesUploader
-  mount_uploader :image_22, FilesUploader
-  mount_uploader :image_23, FilesUploader
-  mount_uploader :image_24, FilesUploader
-  mount_uploader :image_25, FilesUploader
-  mount_uploader :image_26, FilesUploader
-  mount_uploader :image_27, FilesUploader
-  mount_uploader :image_28, FilesUploader
-  mount_uploader :image_29, FilesUploader
-  mount_uploader :image_30, FilesUploader
+  mount_uploaders :image_2, ImagesUploader
+  serialize :image_2, JSON
 
   def  self.review_import(review_file)
     save_cnt = 0
@@ -123,10 +96,10 @@ class Review < ApplicationRecord
   end
 
   def self.create_reviews_by(review_params)
-    return false if review_params[:image_1].nil?
+    return false if review_params[:image_2].nil?
     Review.transaction do
-      review_params[:image_1].each do |review|
-        new_review = Review.new(image_1: review)
+      review_params[:image_2].each do |review|
+        new_review = Review.new(image_2: review)
         return false unless new_review.save!
       end
     end

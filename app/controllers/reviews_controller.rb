@@ -88,37 +88,9 @@ class ReviewsController < ApplicationController
         :description, #説明
         :body, #本文
         :day,
-        :image_2, #ファイル
-        :image_3, #ファイル
-        :image_4, #ファイル
-        :image_5, #ファイル
-        :image_6, #ファイル
-        :image_7, #ファイル
-        :image_8, #ファイル
-        :image_9, #ファイル
-        :image_10, #ファイル
-        :image_11,
-        :image_12,
-        :image_13,
-        :image_14,
-        :image_15,
-        :image_16,
-        :image_17,
-        :image_18,
-        :image_19,
-        :image_20,
-        :image_21,
-        :image_22,
-        :image_23,
-        :image_24,
-        :image_25,
-        :image_26,
-        :image_27,
-        :image_28,
-        :image_29,
-        :image_30,
         :status,
-        {image_1: []}
+        :image_1, #ファイル
+        {image_2: []}
         )
     end
 end

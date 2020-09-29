@@ -7,11 +7,10 @@ br
 .swiper-container
   .swiper-wrapper
     .swiper-slide
-      | Slide 1
+      = image_tag @review.image_1.to_s
     .swiper-slide
-      | Slide 2
-    .swiper-slide
-      | Slide 3
+      - @review.image_2.each |review.image_2|
+        = review.image_2.to_s
   .swiper-pagination
   .swiper-button-prev
   .swiper-button-next
@@ -108,36 +107,6 @@ br
   h1.headline-first.center  = @eatery.store
   .fr-view
        .body-base  = @review.body.html_safe
-  .row.center
-      = image_tag @review.image_2.to_s, width:"90%"
-      = image_tag @review.image_3.to_s, width:"90%"
-      = image_tag @review.image_4.to_s, width:"90%"
-      = image_tag @review.image_5.to_s, width:"90%"
-      = image_tag @review.image_6.to_s, width:"90%"
-      = image_tag @review.image_7.to_s, width:"90%"
-      = image_tag @review.image_8.to_s, width:"90%"
-      = image_tag @review.image_9.to_s, width:"90%"
-      = image_tag @review.image_10.to_s, width:"90%"
-      = image_tag @review.image_11.to_s, width:"90%"
-      = image_tag @review.image_12.to_s, width:"90%"
-      = image_tag @review.image_13.to_s, width:"90%"
-      = image_tag @review.image_14.to_s, width:"90%"
-      = image_tag @review.image_15.to_s, width:"90%"
-      = image_tag @review.image_16.to_s, width:"90%"
-      = image_tag @review.image_17.to_s, width:"90%"
-      = image_tag @review.image_18.to_s, width:"90%"
-      = image_tag @review.image_19.to_s, width:"90%"
-      = image_tag @review.image_20.to_s, width:"90%"
-      = image_tag @review.image_21.to_s, width:"90%"
-      = image_tag @review.image_22.to_s, width:"90%"
-      = image_tag @review.image_23.to_s, width:"90%"
-      = image_tag @review.image_24.to_s, width:"90%"
-      = image_tag @review.image_25.to_s, width:"90%"
-      = image_tag @review.image_26.to_s, width:"90%"
-      = image_tag @review.image_27.to_s, width:"90%"
-      = image_tag @review.image_28.to_s, width:"90%"
-      = image_tag @review.image_29.to_s, width:"90%"
-      = image_tag @review.image_30.to_s, width:"90%"
 
 table.company
    colgroup

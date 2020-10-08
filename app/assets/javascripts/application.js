@@ -39,9 +39,12 @@
 //= require languages/ja.js
 //= require rails-ujs
 //= require activestorage
-//= require jquery
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require swiper/swiper-bundle.js
+//= require swiper.js
 
 
 $(function() {
@@ -55,18 +58,3 @@ $(function() {
         }
     });
 });
-
-
-var Swiper = new Swiper('.swiper-container', {
-  loop: true,
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
-})

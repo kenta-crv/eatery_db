@@ -10,7 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require froala_editor.min.css
+*= require froala_editor.min.css
 *= require froala_style.min.css
 *= require font-awesome
 *= require plugins/char_counter.min.css
@@ -31,6 +31,7 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import 'swiper/swiper-bundle';
 
  $main_color: orange;
  $sub_color: #fff;
@@ -481,4 +482,41 @@ table.company {
   textarea {
     width:90%;
     line-height: 1.5em;
+  }
+
+
+  .swiper-container {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+    height: 40vw;
+    max-height:400px; //最大の高さ
+    min-height: 300px; //最小の高さ
+
+    .swiper-slide {
+      text-align: center;
+      line-height: 1;
+      display: flex;
+      align-items: flex-start; //画像の高さを統一させない
+      justify-content: center; //左右の中央揃え
+
+      img {
+        display: inline; //念のため
+        width: auto; //念のため
+        max-width: 100%;
+        max-height: 100%;
+        align-self: center; //上下の中央揃え
+      }
+    }
+    .swiper-button-white {
+      &:focus {
+        outline: none;
+      }
+    }
+    .swiper-button-prev {
+      left: 25px;
+    }
+    .swiper-button-next {
+      right: 25px;
+    }
   }

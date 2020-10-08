@@ -23,10 +23,8 @@ html
          = f.search_field :genre_cont, type: "text", placeholder: "ジャンル", class:"window"
          = f.submit "検索", class:"submit-button"
   br
-  script
-   |  var mySwiper = new Swiper ('.swiper-container', { // ここからオプション loop: true, pagination: { el: '.swiper-pagination', }, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev', }, scrollbar: { el: '.swiper-scrollbar', }, }) 
   body
-     /= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"
+     /script[src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"]
      = yield
      p.notice = notice
      p.alert = alert

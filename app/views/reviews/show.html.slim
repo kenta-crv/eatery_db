@@ -32,9 +32,9 @@ br
     .swiper-wrapper
       .swiper-slide
         = image_tag @review.image_1.to_s
-      .swiper-slide
-        - @review.image_2.each |image_2|
-          = image_2
+      - @review.image_2.each do |image_2|
+       .swiper-slide
+          = image_tag(image_2.to_s)
 
     .swiper-pagination
     .swiper-button-next

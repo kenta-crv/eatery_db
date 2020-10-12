@@ -26,7 +26,7 @@ before_action :before_search
     when Admin
       reviews_path
     when User
-      "/users/#{current_user.id}"
+      reviews_path
     else
       super
     end

@@ -6,7 +6,7 @@ br
 br
 
 #review-detail
-  = link_to "一覧に戻る", eatery_reviews_path
+  = link_to "一覧に戻る", reviews_path, class:"btn btn-warning"
   .fr-view
 	  h1.headline-first  = @review.title
   - if admin_signed_in?
@@ -14,19 +14,19 @@ br
     tr
      td
       = link_to "https://tabelog.com/setting/review_manage/draft_lst/", target:"_blank" do
-        = image_tag "tabelog.png", width:"100px";
+        = image_tag "tabelog.png"
      td
       = link_to "https://retty.me/", target:"_blank" do
-        = image_tag "retty.png", width:"100px";
+        = image_tag "retty.png"
      td
       = link_to "https://www.google.co.jp/maps/?hl=ja", target:"_blank" do
-        = image_tag "google.png", width:"100px";
+        = image_tag "google.png"
      td
       = link_to "https://www.instagram.com/", target:"_blank" do
-        = image_tag "instagram.png", width:"100px";
+        = image_tag "instagram.png"
      td
       = link_to "https://twitter.com/compose/tweet", target:"_blank" do
-        = image_tag "twitter.png", width:"100px";
+        = image_tag "twitter.png"
   br
   .swiper-container.center
     .swiper-wrapper
@@ -47,69 +47,63 @@ br
   table.company
      tbody
       tr
-        th.arrow_box
+        td
            | 美味しさ
+        td.red
+          = @review.delicious_score
+          | 点
         td
-           = @review.delicious_score
-           | 点
-        th.arrow_box
            | ムード
-        td
+        td.red
            = @review.mood_score
            | 点
-        th.arrow_box
-           | CP
+      tr
         td
+           | CP
+        td.red
            = @review.cost_performance_score
            | 点
-        th.arrow_box
-           | サービス
         td
+           | サービス
+        td.red
            = @review.service_score
            | 点
       tr
-        th.arrow_box
-           | 創造性
         td
+           | 創造性
+        td.red
            = @review.imagination_score
            | 点
-        th.arrow_box
-           = @review.original1
         td
+           = @review.original1
+        td.red
            = @review.original1_score
            | 点
-        th.arrow_box
-           = @review.original2
+      tr
         td
+           = @review.original2
+        td.red
            = @review.original2_score
            | 点
-        th.arrow_box
-           | 総合点
         td
+           | 総合点
+        td.red
            | 点
-  table.company
-   tbody
-    .col[width="18%"]
-    .col[width="18%"]
-    .col[width="18%"]
-    .col[width="18%"]
-    .col[width="18%"]
-    .col[width="18%"]
-        tr
-          th.arrow_box 訪問日
-          td
-            = @review.visited
-            th.arrow_box リピート価値
-          td
-            = @review.revisit
-          th.arrow_box 平均単価
-          td
-            = @review.average_price
+      tr
+        td 訪問日
+        td
+          = @review.visited
+        td リピート価値
+        td
+          = @review.revisit
+
   br
   h1.headline-first.center  = @eatery.store
   .fr-view
        .body-base  = @review.body.html_safe
 
+h2.headline
+ | 店舗情報
 table.company
    colgroup
      col width="10%"

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
    }
    resources :users, only: [:show]
 
-   root to: 'eateries#index'
+   root to: 'reviews#index'
    resources :eateries do
      collection do
        post :import

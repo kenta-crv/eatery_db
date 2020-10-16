@@ -37,6 +37,8 @@
  $sub_color: #fff;
  $asort_color: red;
 
+
+
  body {
    font-family: "ヒラギノ角ゴ Pro W3";
    width:100%;
@@ -114,8 +116,12 @@
   }
 }
 
+
+
+
 .store_review {
   margin:10px 25px 5px;
+  @media screen and ( max-width:479px ){text-align: center;}
   a {
     text-decoration: none;
     color:black;
@@ -123,6 +129,7 @@
   .store {
     font-weight:bold;
     font-size:2rem;
+    @media screen and ( max-width:479px ){font-size:1.8rem;}
   }
   .genre {margin-left:25px;}
   .index-text {
@@ -131,6 +138,9 @@
     color:#555;
     margin-top:30px;
     margin-bottom:30px;
+  }
+  .description{
+    @media screen and ( max-width:479px ){font-size:1.2rem;}
   }
 }
 
@@ -152,11 +162,11 @@ margin-top:50px;
  header {
    height:75px;
    .menu {
-     padding-left:10px;
-     padding-top:10px;
+
      width:100%;
      max-width: 200px;
      height: auto;
+     @media screen and ( max-width:479px ){font-size:2.0rem;}
    }
    .border-line {
      height:60px;
@@ -394,7 +404,8 @@ table.company {
    border-collapse: separate;
    border-spacing: 0px 15px;
    font-size: 1.5vw;
-
+   img{ width:100px;
+   @media screen and ( max-width:479px ){width:40px;}}
    th, td { padding: 10px; }
 
    th {
@@ -520,3 +531,16 @@ table.company {
       right: 25px;
     }
   }
+
+
+.red {
+  font-size:1.8em;
+  font-weight:bold;
+  color:red;
+  @media screen and ( max-width:479px ){font-size:2.0rem;}
+}
+
+.index-image {
+  width:100%;
+  @media screen and ( max-width:479px ){width:85%;}
+}

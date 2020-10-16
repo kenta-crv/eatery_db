@@ -14,11 +14,12 @@ $asort_color: red;
        color:black;
        font-weight:bold;
 			 font-size:2.5rem;
-			 
+			 @media screen and ( max-width:479px ){font-size:2.0rem;}
 	    }
 	 .headline-first:first-letter {
        color:$main_color;
        font-size:3.0rem;
+			 @media screen and (max-width:479px ){fint-size:1.8rem;}
        }
 
     h2 {

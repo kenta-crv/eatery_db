@@ -13,7 +13,7 @@ class EateriesController < ApplicationController
     end
 
     def show
-      @eatery = Eatery.find(canonical_name: params[:canonical_name])
+      @eatery = Eatery.find_by(canonical_name: params[:canonical_name])
     end
 
     def new

@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
     def index
       @type = params[:type]
       @q = Review.ransack(params[:q])
+      @reviews = @q.result.page(params[:page]).per(20)
       case @type
       when "all" then
         @reviews = Review.published.order("created_at DESC").page(params[:page]).per(20)

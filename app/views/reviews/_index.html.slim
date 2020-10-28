@@ -1,0 +1,68 @@
+.index-wrapper
+  .row
+    .col-sm-12
+      h1.headline
+        | グルメレビュー
+      - @reviews.each do |review|
+        .row
+          .col-sm-1
+          .col-sm-3.center
+            = image_tag review.image_1.to_s, class:"index-image"
+          .col-sm-7.store_review
+            .review-title
+              = link_to review.title, eatery_review_path(review.eatery, review), class:"store"
+            br
+            .description
+             = review.description.to_s.html_safe
+            br
+            .center
+             - if admin_signed_in?
+               = link_to '編集  ', edit_eatery_review_path(review.eatery, review), class: 'btn btn-warning'
+               = link_to '削除',
+                                   eatery_review_path(review.eatery,review),
+                                   method: :delete,
+                                   class: 'btn btn-warning',
+                                   data: { confirm: '本当に削除しますか？'}
+        br
+        .row
+         .col-sm-12
+             table.company.center
+               tbody
+                tr
+                  th
+                     | 美味しさ
+                  th
+                     | 雰囲気
+                  th
+                     | CP
+                  th
+                     | サービス
+                  th
+                     | 創造性
+                  th.review-index-text
+                     | 総合点
+                tr
+                  td.red
+                    = review.delicious_score
+                    | 点
+                  td.red
+                     = review.mood_score
+                     | 点
+                  td.red
+                     = review.cost_performance_score
+                     | 点
+                  td.red
+                     = review.service_score
+                     | 点
+                  td.red
+                     = review.imagination_score
+                     | 点
+                  td.red
+                     = review.total_score
+                     | 点
+        br
+        hr
+.row
+ .col-xs-5
+ .col-xl-7
+   = paginate(@reviews)

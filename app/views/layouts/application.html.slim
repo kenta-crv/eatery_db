@@ -4,16 +4,30 @@ html
     = render template: 'layouts/_header.html.slim'
   header
    .row
-     .col-xs-12
+     .col-xs-6.col-sm-9
        = link_to "/" do
         = image_tag 'rogo.png',  class:"menu"
-       nav.globalMenuSp
+     .col-xs-6.col-sm-3
+       .form[action="#" method="GET"]
+         select[name="pref" onChange="myfunc(this.value)" class="cp_ipselect cp_sl05"]
+           option[disabled selected value]
+             | 並び順を変更
+           option
+             = link_to reviews_path(type: "all")
+           option
+             = link_to "総合ランキング",reviews_path(type: "total_score")
+           option
+             = link_to "美味ランキング",reviews_path(type: "delicious_score")
+           option
+             = link_to "ムードランキング",reviews_path(type: "mood_score")
+           option
+             = link_to "コスパランキング",reviews_path(type: "cost_performance_score")
+           option
+             = link_to "サービスランキング",reviews_path(type: "service_score")
+           option
+             = link_to "創造性ランキング",reviews_path(type: "imagination_score")
 
-       /.navToggle
-        /  span
-        /  span
-        /  span
-        /  span menu
+
    .row
      .col-xs-12.border-line
        .search2.center.height

@@ -2,6 +2,23 @@
 - set_meta_tags  keyword: 'review.eatery.title'
 - set_meta_tags  description: '@review.description'
 
+form[action="#" method="GET"]
+  select[name="pref" onchange="submit(this.form)"]
+    option[value="all"]
+      = link_to "全て表示",eateries_path(type: "all")
+    option[value="total_score"]
+      = link_to "総合ランキング",eateries_path(type: "total_score")
+    option[value="delicious_score"]
+      = link_to "美味ランキング",eateries_path(type: "delicious_score")
+    option[value="mood_score"]
+      = link_to "ムードランキング",eateries_path(type: "mood_score")
+    option[value="cost_performance_score"]
+      = link_to "コスパランキング",eateries_path(type: "cost_performance_score")
+    option[value="service_score"]
+      = link_to "サービスランキング",eateries_path(type: "service_score")
+    option[value="imagination_score"]
+      = link_to "創造性ランキング",eateries_path(type: "imagination_score")
+
 .index-wrapper
   .row
     .col-sm-12
@@ -11,7 +28,7 @@
         .row
           .col-sm-1
           .col-sm-3.center
-            = image_tag review.image_1.to_s, class:"index-image";
+            = image_tag review.image_1.to_s, class:"index-image"
           .col-sm-7.store_review
             .review-title
               = link_to review.title, eatery_review_path(review.eatery, review), class:"store"
@@ -19,15 +36,57 @@
             .description
              = review.description.to_s.html_safe
             br
-            - if admin_signed_in?
-                = link_to '編集  ', edit_eatery_review_path(review.eatery, review), class: 'btn btn-warning'
-                = link_to '削除',
-                 			            	eatery_review_path(review.eatery,review),
-                 			            	method: :delete,
-                 			            	class: 'btn btn-warning',
-                 			            	data: { confirm: '本当に削除しますか？'}
+            .center
+             - if admin_signed_in?
+               = link_to '編集  ', edit_eatery_review_path(review.eatery, review), class: 'btn btn-warning'
+               = link_to '削除',
+                                   eatery_review_path(review.eatery,review),
+                                   method: :delete,
+                                   class: 'btn btn-warning',
+                                   data: { confirm: '本当に削除しますか？'}
+        br
+        .row
+         .col-sm-12
+             table.company.center
+               tbody
+                tr
+                  th
+                     | 美味しさ
+                  th
+                     | 雰囲気
+                  th
+                     | CP
+                  th
+                     | サービス
+                  th
+                     | 創造性
+                  th.review-index-text
+                     | 総合点
+                tr
+                  td.red
+                    = review.delicious_score
+                    | 点
+                  td.red
+                     = review.mood_score
+                     | 点
+                  td.red
+                     = review.cost_performance_score
+                     | 点
+                  td.red
+                     = review.service_score
+                     | 点
+                  td.red
+                     = review.imagination_score
+                     | 点
+                  td.red
+                     = review.total_score
+                     | 点
         br
         hr
+.row
+ .col-xs-5
+ .col-xl-7
+   = paginate(@reviews)
 
 
 - if admin_signed_in?

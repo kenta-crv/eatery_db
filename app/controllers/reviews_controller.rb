@@ -4,8 +4,26 @@ class ReviewsController < ApplicationController
     #before_action :set_review, only: [:show,:edit,:update,:destroy]
     before_action :authenticate_user!, except: [:index, :show]
     def index
-      #@reviews = Review.all
-      @reviews = Review.published.order("created_at DESC").page(params[:page]).per(30)
+      @type = params[:type]
+      @q = Review.ransack(params[:q])
+      case @type
+      when "all" then
+        @reviews = Review.published.order("created_at DESC").page(params[:page]).per(20)
+      when "delicious_score" then
+        @reviews = Review.published.sort.reverse(params[:delicious_score]).page(params[:page]).per(20)
+      when "mood_score" then
+        @reviews = Review.published.sort.reverse(params[:mood_score]).page(params[:page]).per(20)
+      when "cost_performance_score" then
+        @reviews = Review.published.sort.reverse(params[:cost_performance_score]).page(params[:page]).per(20)
+      when "service_score" then
+        @reviews = Review.published.sort.reverse(params[:service_score]).page(params[:page]).per(20)
+      when "imagination_score" then
+        @reviews = Review.published.sort.reverse(params[:imagination_score]).page(params[:page]).per(20)
+      when "total_score" then
+        @reviews = Review.published.sort.reverse(params[:total_score]).page(params[:page]).per(20)
+      else
+        @reviews = Review.published.where(revisit: 1).order("created_at DESC").page(params[:page]).per(20)
+      end
     end
 
     def show

@@ -436,6 +436,14 @@ table.company {
    td {
       background: #f4f4f4;
       }
+   th.review-index-text{
+     font-size:12px;
+   }
+   .index-red{
+     font-size:13px;
+     color:red;
+     font-weight:bold;
+   }
 }
 
 
@@ -541,6 +549,10 @@ table.company {
 }
 
 .index-image {
-  width:100%;
+  padding-top:15px;
+  width:110%;
   @media screen and ( max-width:479px ){width:85%;}
 }
+
+.harf {width:45%;}
+.address {width:14%;}

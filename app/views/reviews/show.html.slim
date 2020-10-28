@@ -53,7 +53,7 @@ br
           = @review.delicious_score
           | 点
         td
-           | ムード
+           | 雰囲気
         td.red
            = @review.mood_score
            | 点
@@ -75,19 +75,9 @@ br
            = @review.imagination_score
            | 点
         td
-           = @review.original1
-        td.red
-           = @review.original1_score
-           | 点
-      tr
-        td
-           = @review.original2
-        td.red
-           = @review.original2_score
-           | 点
-        td
            | 総合点
         td.red
+           = @review.total_score
            | 点
       tr
         td 訪問日

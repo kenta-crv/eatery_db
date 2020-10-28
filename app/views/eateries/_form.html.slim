@@ -9,14 +9,19 @@
         td
           strong.label 必須
         td.arrow_box
-          | 店舗名
-        td = text_field :eatery, :store
+          | 店舗名（テンポメイ）
+        td
+          = text_field :eatery, :store, class:"harf"
+          |（
+          = text_field :eatery, :store_kana, class:"harf"
+          |）
       tr
         td
-          strong.label.label-blue 任意
+          strong.label 必須
         td.arrow_box
-          | テンポメイ
-        td = text_field :eatery, :store_kana
+          | ID
+        td
+          = text_field :eatery, :canonical_name, class:"harf"
       tr
         td
           strong.label.label-blue 任意
@@ -35,17 +40,15 @@
         td.arrow_box
           | 住所
         td
-          |（県）
+          |(県)
           = text_field :eatery, :prefecture, class: "address"
-          |（市）
+          |(市)
           = text_field :eatery, :city, class: "address"
-          br
-          |（町）
+          |(町)
           = text_field :eatery, :town, class: "address"
-          |（番地）
+          |(番地)
           = text_field :eatery, :chome, class: "address"
-          br
-          |（ビル）
+          |(ビル)
           = text_field :eatery, :building, class: "address"
       tr
         td
@@ -57,102 +60,8 @@
         td
           strong.label.label-blue 任意
         td.arrow_box
-          | 支払方法
-        td = text_field :eatery, :payment
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | ランチ単価
-        td = text_field :eatery, :price_lunch
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | ディナー単価
-        td = text_field :eatery, :price_dinner
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 営業時間
-        td = text_field :eatery, :hour
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 定休日
-        td = text_field :eatery, :holiday
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 難易度
-        td = text_field :eatery, :difficulty
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 予約方法
-        td = text_field :eatery, :bookking
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 席数
-        td = number_field :eatery, :sit
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | オープン日
-        td = date_field  :eatery, :open
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | シェフ
-        td = text_field :eatery, :chef
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | キャリア
-        td = text_area :eatery, :career
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | 備考
-        td = number_field :eatery, :remarks
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | テイクアウト
-        td = number_field :eatery, :takeout
-      tr
-        td
-          strong.label 必須
-        td.arrow_box
           | メイン画像
         td
           = f.file_field :image_1, :multiple => true
-      tr
-        td
-          strong.label.label-blue 任意
-        td.arrow_box
-          | サブ画像
-        td
-         = f.file_field :image_2
-         = f.file_field :image_3
-         = f.file_field :image_4
-         = f.file_field :image_5
-         = f.file_field :image_6
-         = f.file_field :image_7
-         = f.file_field :image_8
-         = f.file_field :image_9
-         = f.file_field :image_10
-
-      tr
-        td[colspan="3"] = f.submit '投稿する'
+      tr.center
+        td[colspan="3"] = f.submit '投稿する', class:"btn btn-warning"

@@ -56,4 +56,6 @@ class Eatery < ApplicationRecord
   def address
     prefecture + city + town + chome + building
   end
+
+
 end

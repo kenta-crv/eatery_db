@@ -95,3 +95,4 @@ gem "jquery-rails"
 gem "jquery-ui-rails"
 
 gem 'enum_help'
+gem "select2-rails"

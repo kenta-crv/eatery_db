@@ -55,7 +55,10 @@
           strong.label 必須
         td.arrow_box
           | ジャンル
-        td = text_field :eatery, :genre
+        td
+        /  = select :genre, :tags, tags, { selected: selected_tags }, { multiple: true, name: 'eatery[tags]', class: 'form-control js-searchable'
+
+
       tr
         td
           strong.label.label-blue 任意

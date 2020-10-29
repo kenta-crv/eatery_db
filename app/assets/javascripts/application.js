@@ -22,6 +22,7 @@
 //= require plugins/fullscreen.min.js
 //= require plugins/url.min.js
 //= require languages/ja.js
+//= require select2
 //= require activestorage
 //= require turbolinks
 //= require_tree .
@@ -45,5 +46,10 @@ $(function() {
 
 
 function myfunc(value) {
-  window.location.replace('/?option=' + value);
+  window.location.replace(value);
 }
+
+$('.js-searchable').select2({
+  width: 200,
+  allowClear: true
+});

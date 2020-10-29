@@ -6,30 +6,30 @@ class ReviewsController < ApplicationController
     def index
       @type = params[:type]
       @q = Review.ransack(params[:q])
-      @reviews = @q.result.page(params[:page]).per(20)
+      @companies = @q.result.page(params[:page]).per(20)
       case @type
       when "all" then
         @reviews = Review.published.order("created_at DESC").page(params[:page]).per(20)
       when "delicious_score" then
-        @reviews = Review.published.sort.reverse(params[:delicious_score]).page(params[:page]).per(20)
+        @reviews = Review.published.order("delicious_score DESC").page(params[:page]).per(20)
       when "mood_score" then
-        @reviews = Review.published.sort.reverse(params[:mood_score]).page(params[:page]).per(20)
+        @reviews = Review.published.order("mood_score DESC").page(params[:page]).per(20)
       when "cost_performance_score" then
-        @reviews = Review.published.sort.reverse(params[:cost_performance_score]).page(params[:page]).per(20)
+        @reviews = Review.published.order("cost_performance_score DESC").page(params[:page]).per(20)
       when "service_score" then
-        @reviews = Review.published.sort.reverse(params[:service_score]).page(params[:page]).per(20)
+        @reviews = Review.published.order("service_score DESC").page(params[:page]).per(20)
       when "imagination_score" then
-        @reviews = Review.published.sort.reverse(params[:imagination_score]).page(params[:page]).per(20)
+        @reviews = Review.published.order("imagination_score DESC").page(params[:page]).per(20)
       when "total_score" then
-        @reviews = Review.published.sort.reverse(params[:total_score]).page(params[:page]).per(20)
+        @reviews = Review.published.order("total_score DESC").page(params[:page]).per(20)
       else
         @reviews = Review.published.where(revisit: 1).order("created_at DESC").page(params[:page]).per(20)
       end
     end
 
     def show
-      @eatery = Eatery.find_by(canonical_name: params[:eatery_canonical_name])
-      @review = Review.find_by(id: params[:id], eatery_canonical_name: @eatery.canonical_name)
+      @eatery = Eatery.find(params[:eatery_id])
+      @review = Review.find_by(id: params[:id], eatery_id: @eatery.id)
     end
 
     def new

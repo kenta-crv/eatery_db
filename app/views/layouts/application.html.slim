@@ -8,24 +8,23 @@ html
        = link_to "/" do
         = image_tag 'rogo.png',  class:"menu"
      .col-xs-6.col-sm-3
-       .form[action="#" method="GET"]
          select[name="pref" onChange="myfunc(this.value)" class="cp_ipselect cp_sl05"]
            option[disabled selected value]
              | 並び順を変更
-           option
-             = link_to reviews_path(type: "all")
-           option
-             = link_to "総合ランキング",reviews_path(type: "total_score")
-           option
-             = link_to "美味ランキング",reviews_path(type: "delicious_score")
-           option
-             = link_to "ムードランキング",reviews_path(type: "mood_score")
-           option
-             = link_to "コスパランキング",reviews_path(type: "cost_performance_score")
-           option
-             = link_to "サービスランキング",reviews_path(type: "service_score")
-           option
-             = link_to "創造性ランキング",reviews_path(type: "imagination_score")
+           option[value="/reviews?type=all"]
+             | 全件表示
+           option[value="/reviews?type=total_score"]
+             | 総合ランキング
+           option[value="/reviews?type=delicious_score"]
+             | 美味ランキング
+           option[value="/reviews?type=mood_score"]
+             | ムードランキング
+           option[value="/reviews?type=cost_performance_score"]
+             | コスパランキング
+           option[value="/reviews?type=service_score"]
+             | サービスランキング
+           option[value="/reviews?type=imagination_score"]
+             | 創造性ランキング
 
 
    .row

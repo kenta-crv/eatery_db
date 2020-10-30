@@ -15,7 +15,7 @@ class EateriesController < ApplicationController
     end
 
     def show
-      @eatery = Eatery.find_by(canonical_name: params[:canonical_name]) #(id: params[:id])
+      @eatery = Eatery.find_by(canonical_name: params[:canonical_name]) #
     end
 
     def new

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
    resources :users, only: [:show]
 
    root to: 'reviews#index'
-   resources :eateries, param: :canonical_name, path: '/', only: [:show, :edit, :update, :destroy] do
+   resources :eateries, param: :canonical_name, only: [:show, :edit, :update, :destroy] do
      collection do
        post :import
        #post :review_import

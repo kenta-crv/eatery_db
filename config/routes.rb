@@ -13,12 +13,12 @@ Rails.application.routes.draw do
    resources :users, only: [:show]
 
    root to: 'reviews#index'
-   resources :eateries, path: '/', only: [:show, :edit, :update, :destroy] do
+   resources :eateries, only: [:show, :edit, :update, :destroy] do
      collection do
        post :import
        #post :review_import
      end
-     resources :reviews, except: [:index]
+     resources :reviews, except: [:index], only: [:show, :edit, :update, :destroy, :confirm]
    end
 
    resources :reviews, only: [:index] do

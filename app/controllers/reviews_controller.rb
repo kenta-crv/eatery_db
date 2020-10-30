@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    before_action :load_eatery, only: [:edit, :update, :destroy]
     before_action :set_eatery
     before_action :set_user
     #before_action :set_review, only: [:show,:edit,:update,:destroy]
@@ -28,9 +29,9 @@ class ReviewsController < ApplicationController
     end
 
     def show
-      @eatery = Eatery.find_by_canonical_name_or_id(params[:id])
-      @review = Review.find_by(id: params[:id], eatery_id: @eatery.id)
-      @review = Review.find_by(id: params[:id], eatery_id: @eatery.canonical_name)
+      #@eatery = Eatery.find(params[:eatery_id])
+      @eatery = Eatery.find_by_canonical_name_or_id(params[:eatery_id])
+      @review = Review.find_by_visited_or_id(id: params[:id], eatery_id: @eatery.id)
     end
 
     def new
@@ -57,17 +58,17 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-      @review = Review.find(params[:id])
+      #@review = Review.find(params[:id])
     end
 
     def destroy
-      @review = Review.find(params[:id])
+      #@review = Review.find(params[:id])
       @review.destroy
        redirect_to reviews_path
     end
 
     def update
-      @review = Review.find(params[:id])
+      #@review = Review.find(params[:id])
       if @review.update(review_params)
         redirect_to reviews_path
       else
@@ -85,9 +86,9 @@ class ReviewsController < ApplicationController
     end
 
     private
-    #def set_review
-  #    @review = @current_eatery.reviews.find(id: params[:id])
-  #  end
+    def load_review
+      @review = Review.find_by_canonical_name_or_id(params[:id])
+    end
 
     def review_params
       params.require(:review).permit(

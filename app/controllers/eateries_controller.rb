@@ -15,7 +15,7 @@ class EateriesController < ApplicationController
     end
 
     def show
-      @eatery = Eatery.find_by(canonical_name: params[:canonical_name]) #
+      #@eatery = Eatery.find_by(canonical_name: params[:canonical_name]) #
     end
 
     def new
@@ -32,19 +32,19 @@ class EateriesController < ApplicationController
     end
 
     def edit
-      @eatery = Eatery.find(id: params[:id])
+      #@eatery = Eatery.find(id: params[:id])
     end
 
     def destroy
-      @eatery = Eatery.find(id: params[:id])
+      #@eatery = Eatery.find(id: params[:id])
       @eatery.destroy
        redirect_to eateries_path
     end
 
     def update
-      @eatery = Eatery.find(id: params[:id])
+      #@eatery = Eatery.find(id: params[:id])
       if @eatery.update(eatery_params)
-        redirect_to eateries_path
+        redirect_to eatery_path(@eatery)
       else
         render 'edit'
       end

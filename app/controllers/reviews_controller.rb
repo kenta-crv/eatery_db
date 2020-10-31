@@ -31,7 +31,8 @@ class ReviewsController < ApplicationController
     def show
       #@eatery = Eatery.find(params[:eatery_id])
       @eatery = Eatery.find_by_canonical_name_or_id(params[:eatery_id])
-      @review = Review.find_by_visited_or_id(id: params[:id], eatery_id: @eatery.id)
+      @review = Review.find_by(id: params[:id], eatery_id: @eatery.id)
+      #@review = Review.find_by_visited_or_id(id: params[:id], eatery_id: @eatery.id)
     end
 
     def new

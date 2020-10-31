@@ -5,13 +5,14 @@ class Review < ApplicationRecord
   mount_uploaders :image_2, ImagesUploader
   serialize :image_2, JSON
 
-  def to_param
-    visited ? visited : id.to_s
-  end
+  #def to_param
+#    visited ? visited : id.to_s
+#  end
 
-  def self.find_by_visited_or_id(arg)
-    find_by_visited(arg) || find(arg)
-  end
+  #def self.find_by_visited_or_id(arg)
+  #  find_by_visited(arg) || find(arg)
+#  end
+
   def  self.review_import(review_file)
     save_cnt = 0
     CSV.foreach(review_file.path, headers: true) do |row|

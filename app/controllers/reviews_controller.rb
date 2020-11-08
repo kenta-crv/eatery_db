@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :load_review, only: [:edit, :update, :destroy]
+    before_action :load_review, only: [:edit, :update, :destroy, :new]
     before_action :set_eatery
     before_action :set_user
     #before_action :set_review, only: [:show,:edit,:update,:destroy]

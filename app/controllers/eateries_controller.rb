@@ -19,13 +19,15 @@ class EateriesController < ApplicationController
     end
 
     def new
+    #  @eatery = Eatery.find_by_canonical_name_or_id(params[:_canonical_name)
       @eatery = Eatery.new
     end
 
     def create
+      #@eatery = Eatery.find_by_canonical_name_or_id(params[:_canonical_name)
       @eatery = Eatery.new(eatery_params)
       if @eatery.save
-        redirect_to new_eatery_review_path(id: params[:id], eatery_id: @eatery.id)
+        redirect_to eateries_path
       else
         render 'new'
       end
@@ -44,7 +46,7 @@ class EateriesController < ApplicationController
     def update
       #@eatery = Eatery.find(id: params[:id])
       if @eatery.update(eatery_params)
-        redirect_to eatery_path(@eatery)
+        redirect_to eateries_path
       else
         render 'edit'
       end

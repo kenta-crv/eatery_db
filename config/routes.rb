@@ -13,12 +13,12 @@ Rails.application.routes.draw do
    resources :users, only: [:show]
 
    root to: 'reviews#index'
-   resources :eateries, only: [:show, :edit, :update, :destroy] do
+   resources :eateries, param: :canonical_name do#, only: [:show, :edit, :update, :destroy] do
      collection do
        post :import
        #post :review_import
      end
-     resources :reviews, except: [:index], only: [:show, :edit, :update, :destroy, :confirm]
+     resources :reviews, param: :visited , except: [:index], only: [:show, :edit, :update, :destroy, :confirm, :new]
    end
 
    resources :reviews, only: [:index] do

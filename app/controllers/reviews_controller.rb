@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :load_eatery, only: [:edit, :update, :destroy]
+    before_action :load_review, only: [:edit, :update, :destroy]
     before_action :set_eatery
     before_action :set_user
     #before_action :set_review, only: [:show,:edit,:update,:destroy]
@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
       @q = Review.ransack(params[:q])
       @companies = @q.result.page(params[:page]).per(20)
       case @type
-      when "all" then
-        @reviews = Review.published.order("created_at DESC").page(params[:page]).per(20)
+      when "reccomend" then
+        @reviews = Review.published.where(revisit: 1).order("created_at DESC").page(params[:page]).per(20)
       when "delicious_score" then
         @reviews = Review.published.order("delicious_score DESC").page(params[:page]).per(20)
       when "mood_score" then
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
       when "total_score" then
         @reviews = Review.published.order("total_score DESC").page(params[:page]).per(20)
       else
-        @reviews = Review.published.where(revisit: 1).order("created_at DESC").page(params[:page]).per(20)
+        @reviews = Review.published.order("created_at DESC").page(params[:page]).per(20)
       end
     end
 
@@ -88,7 +88,8 @@ class ReviewsController < ApplicationController
 
     private
     def load_review
-      @review = Review.find_by_canonical_name_or_id(params[:id])
+      @eatery = Eatery.find_by_canonical_name_or_id(params[:eatery_id])
+      @review = @eatery.reviews.find_by_visited_or_id(params[:id])
     end
 
     def review_params

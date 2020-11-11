@@ -7,6 +7,7 @@ class EateriesController < ApplicationController
       @q = Eatery.ransack(params[:q])
       @eateries = @q.result
       @eateries = @eateries.page(params[:page]).per(20).order(created_at: :desc)
+
       #@eateries = Eatery.all
       respond_to do |format|
        format.html
@@ -64,7 +65,7 @@ class EateriesController < ApplicationController
 
     private
     def load_eatery
-      @eatery = Eatery.find_by_canonical_name_or_id(params[:id])
+      @eatery = Eatery.find(id: params[:id])
     end
 
     def eatery_params

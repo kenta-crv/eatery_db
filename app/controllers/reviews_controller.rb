@@ -1,13 +1,12 @@
 class ReviewsController < ApplicationController
-    before_action :load_review, only: [:edit, :update, :destroy, :new]
+    before_action :set_review, only: [:edit, :update, :destroy, :new]
     before_action :set_eatery
     before_action :set_user
     #before_action :set_review, only: [:show,:edit,:update,:destroy]
     before_action :authenticate_user!, except: [:index, :show]
     def index
       @type = params[:type]
-      @q = Review.ransack(params[:q])
-      @companies = @q.result.page(params[:page]).per(20)
+      @reviews = @q.result.page(params[:page]).per(20)
       case @type
       when "reccomend" then
         @reviews = Review.published.where(revisit: 1).order("created_at DESC").page(params[:page]).per(20)
@@ -29,10 +28,8 @@ class ReviewsController < ApplicationController
     end
 
     def show
-      #@eatery = Eatery.find(params[:eatery_id])
-      @eatery = Eatery.find_by_canonical_name_or_id(params[:eatery_canonical_name])
-      @review = @eatery.reviews.find_by_visited_or_id(params[:visited])
-      #@review = Review.find_by_visited_or_id(id: params[:id], eatery_id: @eatery.id)
+      @eatery = Eatery.find(params[:eatery_id])
+      @review = Review.find_by(id: params[:id], eatery_id: @eatery.id)
     end
 
     def new
@@ -59,7 +56,7 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-      #@review = Review.find(params[:id])
+      @review = Review.find(params[:id])
     end
 
     def destroy
@@ -87,9 +84,8 @@ class ReviewsController < ApplicationController
     end
 
     private
-    def load_review
-      @eatery = Eatery.find_by_canonical_name_or_id(params[:eatery_canonical_name])
-      @review = @eatery.reviews.find_by_visited_or_id(params[:visited])
+    def set_review
+      @review = @current_eatery.reviews.find(id: params[:id])
     end
 
     def review_params

@@ -11,13 +11,13 @@ class Eatery < ApplicationRecord
   mount_uploader :image_10, ImagesUploader
   has_many :reviews, dependent: :destroy
 
-  def to_param
-    canonical_name ? canonical_name : id.to_s
-  end
+  #def to_param
+  #  canonical_name ? canonical_name : id.to_s
+  #end
 
-  def self.find_by_canonical_name_or_id(arg)
-    find_by_canonical_name(arg) || find(arg)
-  end
+  #def self.find_by_canonical_name_or_id(arg)
+  #  find_by_canonical_name(arg) || find(arg)
+  #end
   #eatery_import
   def self.import(file)
       save_cont = 0

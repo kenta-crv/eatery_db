@@ -1,7 +1,7 @@
 class EateriesController < ApplicationController
   before_action :set_eatery
   before_action :authenticate_admin!, except: [:index, :show]
-  before_action :load_eatery, only: [:show, :edit, :update, :destroy]
+#  before_action :load_eatery, only: [:show, :edit, :update, :destroy]
 
     def index
       @q = Eatery.ransack(params[:q])
@@ -16,7 +16,7 @@ class EateriesController < ApplicationController
     end
 
     def show
-      #@eatery = Eatery.find_by(canonical_name: params[:canonical_name]) #
+      @eatery = Eatery.find(params[:id])
     end
 
     def new
@@ -35,17 +35,17 @@ class EateriesController < ApplicationController
     end
 
     def edit
-      #@eatery = Eatery.find(id: params[:id])
+      @eatery = Eatery.find(params[:id])
     end
 
     def destroy
-      #@eatery = Eatery.find(id: params[:id])
+      @eatery = Eatery.find(params[:id])
       @eatery.destroy
        redirect_to eateries_path
     end
 
     def update
-      #@eatery = Eatery.find(id: params[:id])
+      @eatery = Eatery.find(params[:id])
       if @eatery.update(eatery_params)
         redirect_to eateries_path
       else
@@ -64,9 +64,9 @@ class EateriesController < ApplicationController
     #endz
 
     private
-    def load_eatery
-      @eatery = Eatery.find(id: params[:id])
-    end
+  #def load_eatery
+  #    @eatery = Eatery.find(id: params[:id])
+  #  end
 
     def eatery_params
       params.require(:eatery).permit(

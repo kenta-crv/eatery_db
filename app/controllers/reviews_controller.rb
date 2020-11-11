@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-    before_action :set_review, only: [:edit, :update, :destroy, :new]
     before_action :set_eatery
+    before_action :set_review, only: [:edit, :update, :destroy, :new]
     before_action :set_user
     #before_action :set_review, only: [:show,:edit,:update,:destroy]
     before_action :authenticate_user!, except: [:index, :show]
@@ -85,7 +85,7 @@ class ReviewsController < ApplicationController
 
     private
     def set_review
-      @review = @current_eatery.reviews.find(id: params[:id])
+      @review = @current_eatery.reviews.find_by(id: params[:id])
     end
 
     def review_params

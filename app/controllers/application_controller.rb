@@ -6,7 +6,7 @@ before_action :before_search
   end
 
   def set_eatery
-    @current_eatery# = Eatery.find_by(id: params[:eatery_canonical_name])
+    @current_eatery = Eatery.find_by(id: params[:eatery_id])
   end
 
   def current_eatery

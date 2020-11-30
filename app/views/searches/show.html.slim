@@ -1,0 +1,48 @@
+- set_meta_tags noindex: true
+br
+br
+br
+
+.tops-wrapper
+  h2.headline
+   | 情報照会
+br
+= form_for @search do |f|
+  table.company
+   colgroup
+     col width="10%"
+     col width="20%"
+     col width="70%"
+     tbody
+      tr
+        td
+          strong.label 必須
+        td.arrow_box
+          | お名前
+        td
+          = @search.first_name
+          = @search.last_name
+      tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 電話番号
+         td
+           = @search.tel
+      tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 検索回数
+         td
+           = @search.number_of_times
+      tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | キャンセル数
+         td
+           = @search.cancel
+
+.center
+ = link_to "被害情報を共有する", new_search_comment_path(@search.id, @commment), class:"btn btn-warning"

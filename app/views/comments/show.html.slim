@@ -1,0 +1,57 @@
+- set_meta_tags noindex: true
+br
+br
+br
+
+.tops-wrapper
+  h2.headline
+   | 登録内容
+table.company
+    colgroup
+      col width="10%"
+      col width="20%"
+      col width="70%"
+      tbody
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 予約時の対応について
+         td
+           = @comment.before
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 無断キャンセル時の対応について
+          td
+            = @comment.after
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 被害額
+          td
+            = @comment.damage
+            |円
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 事前キャンセル料がかかることを伝えているか？
+          td
+            = @comment.message
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | キャンセル保証申請を行いますか？
+          td
+            = @comment.request
+       tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | その他
+          td
+            = @comment.remark

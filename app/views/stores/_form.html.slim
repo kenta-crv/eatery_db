@@ -1,0 +1,126 @@
+- if @store.errors.any?
+  strong 入力内容にエラーがあります
+  ul
+    - @store.errors.each do |attr, msg|
+      li= msg
+
+  br
+table.company
+    colgroup
+      col width="10%"
+      col width="20%"
+      col width="70%"
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | 店舗名（テンポメイ）
+      td
+        = f.text_field :store, class:"harf"
+        |(
+        = f.text_field :store_kana , class:"harf"
+        |)
+        br
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | 代表者名
+      td
+        = f.text_field :owner_first_name, class:"harf"
+        = f.text_field :owner_last_name, class:"harf"
+        br
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | 担当者
+      td
+        = f.text_field :first_name, class:"harf"
+        = f.text_field :last_name, class:"harf"
+        br
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | 電話番号
+      td
+        = f.number_field :tel_front, class:"tel"
+        |-
+        = f.number_field :tel_middle
+        |-
+        = f.number_field :tel_back
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | FAX番号
+      td
+        = f.number_field :fax_front
+        |-
+        = f.number_field :fax_middle
+        |-
+        = f.number_field :fax_back
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | サイトURL
+      td
+        = f.text_field :url
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | 郵便番号
+      td
+        = f.text_field :postnumber
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | 都道府県
+      td
+        /= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+        = f.text_field :prefecture
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | 市区町村
+      td
+        = f.text_field :city
+    tr
+      td
+        strong.label 必須
+      td.arrow_box
+        | 番地
+      td
+        = f.text_field :town
+    tr
+      td
+        strong.label.label-blue 任意
+      td.arrow_box
+        | ビル名
+      td
+        = f.text_field :building
+    tr
+      td
+        strong.label.label-blue 任意
+      td.arrow_box
+        | 従業員数
+      td
+        = f.number_field :people
+        |人
+    tr
+      td
+        strong.label.label-blue 任意
+      td.arrow_box
+        | 年間売上
+      td
+        = f.number_field :sales
+        |円
+
+    tr
+      td colspan="3"
+        = f.submit "#{btn_name}"

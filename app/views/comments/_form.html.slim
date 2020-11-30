@@ -1,0 +1,54 @@
+- set_meta_tags noindex: true
+
+= form_for ([@search, @comment]) do |f|
+   table.company
+    colgroup
+      col width="10%"
+      col width="20%"
+      col width="70%"
+      tbody
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | 予約時の対応について
+         td
+           = f.text_area :before
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 無断キャンセル時の対応について
+          td
+            = f.text_area :after
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 被害額
+          td
+            = f.number_field :damage
+            |円
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 事前キャンセル料がかかることを伝えているか？
+          td
+            = f.check_box :message
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | キャンセル保証申請を行いますか？
+          td
+            = f.check_box :request
+       tr
+          td
+            strong.label.label-blue 任意
+          td.arrow_box
+            | その他
+          td
+            = f.text_area :remark
+       tr.center
+         td[colspan="3"] = f.submit '投稿する'

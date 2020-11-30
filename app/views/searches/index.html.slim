@@ -1,0 +1,50 @@
+- set_meta_tags noindex: true
+
+.index-wrapper
+  .row
+    .col-sm-12
+      h1.headline
+        | グルメレビュー
+      table.company
+          colgroup
+            col width="30%"
+            col width="20%"
+            col width="20%"
+            col width="20%"
+            col width="10%"
+            tbody
+             tr
+                td.arrow_box
+                  | お名前
+                td.arrow_box
+                  | 電話番号
+                td.arrow_box
+                  | 検索回数
+                td.arrow_box
+                  | キャンセル数
+                td.arrow_box
+                  | 詳細
+            - @searches.each do |search|
+             tr
+                td
+                 = link_to search.first_name, search_path(search)
+                 = link_to search.last_name, search_path(search)
+                td
+                  = link_to search.tel, search_path(search)
+                td
+                  = link_to search.number_of_times, search_path(search)
+                td
+                  = link_to search.cancel, search_path(search)
+                - if admin_signed_in?
+                 td
+                   = link_to '詳細', search_path(search), class: 'btn btn-warning'
+                   = link_to '編集  ', edit_search_path(search), class: 'btn btn-warning'
+                   = link_to '削除',
+                                   search_path(search),
+                                   method: :delete,
+                                   class: 'btn btn-warning',
+                                   data: { confirm: '本当に削除しますか？'}
+                - elsif user_signed_in?
+                 td
+                   = link_to '詳細', search_path(search), class: 'btn btn-warning'
+          = paginate(@searches)

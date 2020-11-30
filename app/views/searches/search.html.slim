@@ -1,0 +1,13 @@
+- noindex
+
+.index-wrapper
+  .row
+    .col-sm-12
+      h1.headline
+        | 情報参照検索
+      .row
+          .col-xs-12.border-line
+            .search2.center.height
+             = search_form_for @q do |f|
+              = f.search_field :tel_eq, type: "number", placeholder: "08000000000", class:"window"
+              = f.submit "検索", class:"submit-button"

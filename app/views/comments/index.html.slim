@@ -1,0 +1,45 @@
+- set_meta_tags noindex: true
+
+.index-wrapper
+  .row
+    .col-sm-12
+      h1.headline
+        | グルメレビュー
+      table.company
+          colgroup
+            col width="30%"
+            col width="20%"
+            col width="20%"
+            col width="20%"
+            tbody
+             tr
+                td.arrow_box
+                  | 被害額
+                td.arrow_box
+                  | リクエスト
+                td.arrow_box
+                  | キャンセル料伝達
+                td.arrow_box
+                  | キャンセル数
+            - @comments.each do |comment|
+             tr
+                td
+                  = comment.damage
+                td
+                  = comment.request
+                td
+                  = comment.message
+                - if admin_signed_in?
+                 td
+                   = link_to '詳細', search_comment_path(@search, comment), class: 'btn btn-warning'
+                   = link_to '編集', edit_search_comment_path(@search, comment), class: 'btn btn-warning'
+                   = link_to '削除',
+                                   search_comment_path(@search, comment),
+                                   method: :delete,
+                                   class: 'btn btn-warning',
+                                   data: { confirm: '本当に削除しますか？'}
+                - elsif user_signed_in?
+                 td
+                   = link_to '詳細', search_comment_path(@search, comment), class: 'btn btn-warning'
+
+          = paginate(@comments)

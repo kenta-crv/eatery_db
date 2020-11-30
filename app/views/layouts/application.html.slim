@@ -3,43 +3,75 @@ html
   head
     = render template: 'layouts/_header.html.slim'
   header
-   .row
-     .col-xs-6.col-sm-9
-       = link_to "/" do
-        = image_tag 'rogo.png',  class:"menu"
-     .col-xs-6.col-sm-3
-         select[name="pref" onChange="myfunc(this.value)" class="cp_ipselect cp_sl05"]
-           option[disabled selected value]
-             | 並び順を変更
-           option[value="/reviews?type=reccomend"]
-             | おすすめ表示
-           option[value="/reviews?type=all"]
-             | 全件表示
-           #option[value="/reviews?type=total_score"]
-            # | 総合ランキング
-           #option[value="/reviews?type=delicious_score"]
-            # | 美味ランキング
-           #option[value="/reviews?type=mood_score"]
-            # | ムードランキング
-           #option[value="/reviews?type=cost_performance_score"]
-            # | コスパランキング
-           #option[value="/reviews?type=service_score"]
-            # | サービスランキング
-           #option[value="/reviews?type=imagination_score"]
-            # | 創造性ランキング
+      .row
+        .col-xs-3
+           = link_to "/"
+            =image_tag "rogo.png", width: "100%", class:"header-image"
+        .col-xs-8.center
+        .col-xs-x1
+      /          .navToggle
+      /            span
+      /            span
+      /            span
+      /            span menu
+      .row.navi
+        .col-xs-12.center.hidden-xs
+          /ul#dropmenu
+           /li
+          /   = link_to  'トップページ', '/' , class: "col-md"
+          / li
+          /   = link_to  'サービス案内', '/lists' , :class=>"col-md"
+          / li
+          /   = link_to  '料金案内', '/posts' , :class=>"col-md"
+          / li
+          /   = link_to  'よくある質問', '/faq' , :class=>"col-md"
+          / li
+          /   = link_to  '会社概要', '/co' , :class=>"col-md"
+          / li
+          /   = link_to  '問い合わせ', '/contact' , :class=>"col-md"
+          / li
+          /   = link_to  '会員案内', '/contact', :class=>"col-md"
+          /   ul
+          /       li
+          /         - if user_signed_in?
+          /          = link_to "マイページ", user_path(current_user)
+          /         - else
+          /          = link_to '相談者ログイン', new_user_session_path , :class=>"col-md"
+          /       li
+          /         - if admin_signed_in?
+          /          = link_to 'マイページ', admin_path(current_admin)
+
+        /nav.globalMenuSp
+        /   ul
+        /    li
+        /      = link_to  'トップページ', '/' , class: "col-md"
+        /    li
+        /      = link_to  '弁護士サーチ', '/lists' , :class=>"col-md"
+        /    li
+        /      = link_to  '記事一覧', '/posts' , :class=>"col-md"
+        /    li
+        /      = link_to  'よくある質問', '/faq' , :class=>"col-md"
+        /    li
+        /      = link_to  '会社概要', '/co' , :class=>"col-md"
+        /    li
+        /      = link_to  '問い合わせ', '/contact' , :class=>"col-md"
+        /    li
+        /      - if user_signed_in?
+        /       = link_to "マイページ", user_path(current_user)
+        /      - else
+        /       = link_to '相談者ログイン', new_user_session_path , :class=>"col-md"
+        /    li
+        /      - if admin_signed_in?
+        /       = link_to 'マイページ', admin_path(current_admin)
 
 
-   .row
-     .col-xs-12.border-line
-       .search2.center.height
-        /= search_form_for @q do |f|
-         /= f.search_field :store_cont, type: "text", placeholder: "店名", class:"window"
-         /= f.search_field :prefecture_cont, type: "text", placeholder: "都道府県", class:"window"
-         /= f.search_field :genre_cont, type: "text", placeholder: "ジャンル", class:"window"
-         /= f.submit "検索", class:"submit-button"
-  br
+
   body
-     /script[src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"]
-     = yield
-     p.notice = notice
-     p.alert = alert
+    p.notice
+      = notice
+    p.alert
+      = alert
+    main
+      .bread
+        = render_breadcrumbs separator: ' > '
+      = yield

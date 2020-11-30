@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_064602) do
+ActiveRecord::Schema.define(version: 2020_11_23_035518) do
 
   create_table "admins", force: :cascade do |t|
     t.string "user_name"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 2020_10_27_064602) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "search_id"
+    t.string "damage"
+    t.string "message"
+    t.string "request"
+    t.string "before"
+    t.string "after"
+    t.string "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["search_id"], name: "index_comments_on_search_id"
   end
 
   create_table "eateries", force: :cascade do |t|
@@ -139,6 +152,16 @@ ActiveRecord::Schema.define(version: 2020_10_27_064602) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "tel"
+    t.string "number_of_times"
+    t.string "cancel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "specials", force: :cascade do |t|
     t.integer "admin_id"
     t.string "title"
@@ -153,37 +176,36 @@ ActiveRecord::Schema.define(version: 2020_10_27_064602) do
   end
 
   create_table "stores", force: :cascade do |t|
+    t.integer "user_id"
     t.string "store"
-    t.string "evaluation"
+    t.string "store_kana"
+    t.string "owner_first_name"
+    t.string "owner_last_name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "tel_front"
+    t.string "tel_middle"
+    t.string "tel_back"
+    t.string "fax_front"
+    t.string "fax_middle"
+    t.string "fax_back"
+    t.string "email"
     t.string "url"
-    t.string "tel"
-    t.string "address"
-    t.string "genre"
-    t.string "payment"
-    t.string "price_lunch"
-    t.string "price_dinner"
-    t.string "hour"
-    t.string "holiday"
-    t.string "budget"
-    t.string "price"
-    t.string "difficulty"
-    t.string "bookking"
-    t.string "sit"
-    t.string "open"
-    t.string "remarks"
-    t.string "takeout"
-    t.string "image_1"
-    t.string "image_2"
-    t.string "image_3"
-    t.string "image_4"
-    t.string "image_5"
-    t.string "image_6"
-    t.string "image_7"
-    t.string "image_8"
-    t.string "image_9"
-    t.string "image_10"
+    t.string "postnumber"
+    t.string "prefecture"
+    t.string "city"
+    t.string "town"
+    t.string "building"
+    t.string "people"
+    t.string "sales"
+    t.integer "postcode"
+    t.integer "prefecture_code"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_building"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stores_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

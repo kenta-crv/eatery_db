@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+   get '/lp' => 'tops#lp'
    #管理者アカウント
    devise_for :admins, controllers: {
      registrations: 'admins/registrations',
@@ -12,28 +13,16 @@ Rails.application.routes.draw do
    }
    resources :users, only: [:show]
 
-   root to: 'reviews#index'
-   #resources :eateries, param: :canonical_name do#, only: [:show, :edit, :update, :destroy] do
-   resources :eateries do#, only: [:show, :edit, :update, :destroy] do
+   root to: 'searches#search'
 
-     collection do
-       post :import
-       #post :review_import
-     end
-     #resources :reviews, param: :visited , except: [:index] #, only: [:show, :edit, :update, :destroy, :confirm, :new]
-     resources :reviews, except: [:index] #, only: [:show, :edit, :update, :destroy, :confirm, :new]
-   end
+   resources :stores
 
-   resources :reviews, only: [:index] do
+   resources :searches do
+     resources :comments, except:[:index]
      collection do
-       post :review_import
-       get :'confirm'
+       get :search
      end
    end
 
-   resources :specials
-
-   get 'contact' => 'contact#index'
-   post 'confirm' =>'contact#confirm'
-   post 'thanks' => 'contact#thanks'
+   resources :comments, only:[:index]
 end

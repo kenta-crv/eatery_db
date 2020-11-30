@@ -23,8 +23,7 @@
 
  $main_color: orange;
  $sub_color: #fff;
- $asort_color: red;
-
+ $asort_color: orange;
 
 
  body {
@@ -39,6 +38,251 @@
  * {
    box-sizing: border-box;
  }
+
+main {
+   margin-top:-80px;
+}
+
+
+                                          /*ヘッダーの始まり*/
+
+header {
+width:100%;
+background-color:white;
+position: sticky;
+top: 0;
+z-index:150;
+  .menu {
+       width:100%;
+       max-width: 200px;
+       height: auto;
+       @media screen and ( max-width:479px ){font-size:2.0rem;}
+  }
+  .navi {
+    background-color:$main_color;
+    line-height:middle;
+    height:40px;
+    a {
+      text-decoration: none;
+      color:white;
+      text-shadow: 1px 1px 1px #000;
+      margin-top:auto;
+      margin-top:8px;
+      a:hover {
+        background-color: rgba(255,255,255,0.1);
+      }
+    }
+  }
+
+    #dropmenu{
+     list-style-type: none;
+     width: 100%;
+     height: 40px;
+     margin: 0 auto;
+     background: $main_color;
+    }
+    #dropmenu li{
+     position: relative;
+     width: 15%;
+     float: left;
+     text-align: center;
+    }
+    #dropmenu li a{
+     display: block;
+     margin: 0;
+     padding: 10px 0px 15px;
+     color: #fff;
+     font-size: 100%;
+     text-shadow: 1px 1px 1px #000;
+     line-height: 1;
+     text-decoration: none;
+    }
+    #dropmenu li ul{
+     list-style: none;
+     position: absolute;
+     top: 100%;
+     left: 0;
+     margin: 0;
+     padding: 0;
+     border-radius: 0 0 3px 3px;
+    }
+    #dropmenu li:last-child ul{
+     left: -100%;
+     width: 100%
+    }
+    #dropmenu li ul li{
+     overflow: hidden;
+     width: 300%;
+     height: 0;
+     color: #fff;
+     -moz-transition: .2s;
+     -webkit-transition: .2s;
+     -o-transition: .2s;
+     -ms-transition: .2s;
+     transition: .2s;
+    }
+    #dropmenu li ul li a{
+     padding: 13px 15px;
+     background: $main_color;
+     text-align: left;
+     font-size: 12px;
+     font-weight: normal;
+    }
+    #dropmenu li:hover > a{
+    background-color:$sub_color;
+     color: #fff;
+    }
+
+    #dropmenu li:hover ul li{
+     overflow: visible;
+     height: 38px;
+     border-top: 1px solid #fff;
+     border-bottom: 1px solid #fff;
+    }
+    #dropmenu li:hover ul li:first-child{
+     border-top: 0;
+    }
+    #dropmenu li:hover ul li:last-child{
+     border-bottom: 0;
+    }
+    #dropmenu li:hover ul li:last-child a{
+     border-radius: 0 0 3px 3px;
+    }
+}
+
+
+                                  /*  メイン画像  */
+.back-image-base {
+  background-image: url('base4.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  padding-bottom:50px;
+  margin-top:-22px;
+}
+.back-image {
+  text-align:center;
+      }
+      .face-1 {
+          font-size:4.0vw;
+          font-weight:bold;
+          margin-top:30px;
+          color:$asort_color;
+          text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
+      }
+      .face-2 {
+          font-size:3.6vw;
+          font-weight:bold;
+      }
+      .face-3 {
+          font-size:7.0vw;
+          font-weight:bold;
+          color:$asort_color;
+          text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
+      }
+      .face-4 {
+          font-size:1.7vw;
+          font-weight:bold;
+          text-shadow: 1px 1px 1px #fff, -1px 1px 1px #fff, 1px -1px 1px #fff, -1px -1px 1px #fff, 1px 1px 1px #fff, -1px 1px 1px #fff, 1px -1px 1px #fff, -1px -1px 1px #fff;
+          line-height:4.0vw;
+      }
+      .face-price {
+          font-size:3.0vw;
+          font-weight:bold;
+          color:orange;
+          margin:-10px 0 -25px;
+          margin-top:20px;
+          margin-bottom:0px;
+      }
+      .face-conversion {
+          font-size:3.0vw;
+          font-weight:bold;
+          color:red;
+      }
+
+ .back-image-index {
+   text-align:center;
+   .index-3 {
+       font-size:3.8vw;
+       font-weight:bold;
+       line-height:7vw;
+       color:$asort_color;
+       text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
+   }
+   .index-4 {
+       font-size:6.0vw;
+       font-weight:bold;
+       line-height:7vw;
+       color:#ff6600;
+       text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff;
+   }
+   /*イエローライン*/
+   .push {
+       text-align:center;
+       font-size:4.3vw;
+       color:red;
+       font-weight:bold;
+       width:100%;
+       text-shadow: 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff, 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff;
+   }
+  }
+
+  /*中央寄せ*/
+  .center {
+    text-align:center;
+    margin:0 auto;
+  }
+
+  .push {
+      text-align:center;
+      font-size:6.0vw;
+      margin:0px;
+      color:orange;
+      line-height:5.0vw;
+      font-weight:bold;
+      width:100%;
+      text-shadow: 3px 3px 3px yellow, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff, 3px 3px 3px #fff, -3px 3px 3px #fff, 3px -3px 3px #fff, -3px -3px 3px #fff;
+  }
+  .under {
+       background: linear-gradient(transparent 60%, #FFFF66 60%);
+  }
+
+
+  .top-wrapper {
+    margin:0 40px -50px;
+    text-align:left;
+     .float-image{
+       float:left;
+       margin:0 20px 20px 0px;
+     }
+     p{
+       font-size:16px;
+       line-height:2.0;
+     }
+     strong{
+       font-size: 3rem;
+       color: $main_color;
+       font-weight: bold;
+       line-height: 5.5rem;
+     }
+
+  }
+  .surprise {
+    font-size:6.0vw;
+    color:white;
+    font-weight:bold;
+    background-color:$main_color;
+    padding:35px;
+  }
+
+  .price {
+    color:red;
+    font-size:2.5vw;
+    font-weight:bold;
+ }
+
+
+
 
 .back-image-app {
   background-image: url('base.png');
@@ -141,32 +385,6 @@
 .index-wrapper{
 margin-top:50px;
 }
-
-
-                                          /*ヘッダーの始まり*/
-
-
- /*ヘッダーのベース設定*/
- header {
-   height:75px;
-   .menu {
-
-     width:100%;
-     max-width: 200px;
-     height: auto;
-     @media screen and ( max-width:479px ){font-size:2.0rem;}
-   }
-   .border-line {
-     height:60px;
-     background-color:orange;
-   }
-   .height {
-     margin: auto 0;
-     padding-top:5px;
-     padding-left:5px;
-   }
- }
-
 
 
  /*ディテール*/
@@ -548,3 +766,186 @@ table.company {
 
 .harf {width:45%;}
 .address {width:14%;}
+
+
+
+
+.cp_qa *, .cp_qa *:after, .cp_qa *:before {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.cp_qa .cp_actab {
+	position: relative;
+  padding-left:15%;
+	overflow: hidden;
+	width: 90%;
+	margin: 0 0 1em 0;
+	color: $main_color;
+}
+.cp_qa .cp_actab input {
+	position: absolute;
+	opacity: 0;
+}
+/* 質問 */
+.cp_qa .cp_actab label {
+	font-weight: bold;
+	line-height: 1.6em;
+	position: relative;
+	display: block;
+	margin: 0 0 0 0;
+	padding: 1em 2em 1em 2.5em;
+	cursor: pointer;
+	text-indent: 1em;
+	border-radius: 0.5em;
+	background: rgba(27,37,56,0.1);
+}
+.cp_qa .cp_actab label::before {
+	font-family: serif;
+	font-size: 1.5em;
+	margin-left: -2em;
+	padding-right: 0.5em;
+	content: 'Q';
+}
+.cp_qa .cp_actab label:hover {
+	transition: all 0.3s;
+	color: #00838f;
+}
+/* --質問の＋アイコン */
+.cp_qa .cp_actab label::after {
+	font-size: 1.7em;
+	font-weight: bold;
+	line-height: 2em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: 'b';
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	-webkit-transition: transform 0.4s;
+	        transition: transform 0.4s;
+}
+/* 答え */
+.cp_qa .cp_actab .cp_actab-content {
+	position: relative;
+	overflow: hidden;
+	max-height: 0;
+	padding: 0 0 0 2.5em;
+	-webkit-transition: max-height 0.2s;
+	        transition: max-height 0.2s;
+	border-radius: 0 0 0.5em 0.5em;
+}
+.cp_qa .cp_actab .cp_actab-content::before {
+	font-family: serif;
+	font-size: 1.5em;
+	position: absolute;
+	margin: 0.4em 0 0 -1em;
+	padding: 0;
+}
+.cp_qa .cp_actab .cp_actab-content p {
+	margin: 1em 1em 1em 0;
+}
+/* 質問を開いた時の仕様 */
+/* --答えの高さ */
+.cp_qa .cp_actab input:checked ~ .cp_actab-content {
+	max-height: 40em;
+	border: 10px solid rgba(27,37,56,0.1);
+}
+/* 質問をクリックした時のアイコンの動き */
+.cp_qa .cp_actab input:checked ~ label {
+	color: #00838f;
+	border-radius: 0.5em 0.5em 0 0;
+}
+/* 質問をクリックした時の+の動き */
+.cp_qa .cp_actab input[type=checkbox]:checked + label::after {
+	-webkit-transform: rotateZ(45deg);
+	transform: rotateZ(45deg);
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+
+
+
+ul {
+    padding: 0;
+    width: 90%;
+}
+li {
+    list-style-type: none;
+}
+dd {
+    margin-left: 0;
+}
+
+.flow > li {
+    position: relative;
+}
+.flow > li:not(:last-child) {
+    margin-bottom: 40px;
+}
+.flow > li:not(:first-child)::before {
+    content: "";
+    height: 60px;
+    display: block;
+    border-left: 4px dotted $main_color;
+    position: absolute;
+    top: -40px;
+    left: -webkit-calc(10% + 30px - 2px);
+    left: calc(10% + 30px - 2px);
+    z-index: 10;
+}
+.flow > li dl {
+    width: 100%;
+    padding: 20px 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 2px solid $main_color;
+    border-radius: 10px;
+    position: relative;
+}
+.flow > li:not(:last-child) dl::before,
+.flow > li:not(:last-child) dl::after {
+    content: "";
+    border: solid transparent;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.flow > li:not(:last-child) dl::before {
+    border-width: 22px;
+    border-top-color: $main_color;
+}
+.flow > li:not(:last-child) dl::after {
+    border-width: 20px;
+    border-top-color: #fff;
+}
+.flow > li dl dt {
+    font-size: 20px;
+    font-weight: 600;
+    color: $main_color;
+    -ms-flex-preferred-size: 20%;
+    flex-basis: 25%;
+    margin-right: 2vw;
+    text-align: center;
+}
+.flow > li dl dt .icon {
+    font-size: 12px;
+    color: #fff;
+    background: $asort_color;
+    background: -moz-linear-gradient(left, $asort_color 0%, $main_color 100%);
+    background: -webkit-linear-gradient(left, $asort_color 0%,$main_color 100%);
+    background: linear-gradient(to right, $asort_color 0%,$main_color 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b90db', endColorstr='#66d5e9',GradientType=1 );
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 20px;
+    position: relative;
+    z-index: 9;
+}

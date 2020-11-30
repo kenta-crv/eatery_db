@@ -1,0 +1,40 @@
+- set_meta_tags noindex: true
+
+= form_for @search do |f|
+   table.company
+    colgroup
+      col width="10%"
+      col width="20%"
+      col width="70%"
+      tbody
+       tr
+         td
+           strong.label 必須
+         td.arrow_box
+           | お名前
+         td
+           = f.text_field :first_name, class:"harf"
+           = f.text_field :last_name, class:"harf"
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 電話番号（ハイフンなし）
+          td
+            = f.number_field :tel
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | 検索回数
+          td
+            = f.number_field :number_of_times
+       tr
+          td
+            strong.label 必須
+          td.arrow_box
+            | キャンセル数
+          td
+            = f.number_field :cancel
+       tr.center
+         td[colspan="3"] = f.submit '投稿する'

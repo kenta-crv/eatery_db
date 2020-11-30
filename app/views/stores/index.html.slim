@@ -1,0 +1,40 @@
+- set_meta_tags noindex: true
+
+.row
+  br
+  br
+  table.company
+   tr
+     th 店舗名
+     th 担当者
+     th 電話番号
+     th 住所
+     th
+   - @stores.each do |store|
+    tr
+     td = link_to store.store, store_path(store)
+     td
+       = store.first_name
+       = store.last_name
+     td
+       = store.tel_front
+       |-
+       = store.tel_middle
+       |-
+       = store.tel_back
+     td
+       = store.prefecture
+       = store.city
+       = store.town
+       = store.building
+     td
+       = link_to '編集  ', edit_store_path(store), class: 'btn btn-warning'
+       = link_to '削除',
+                     store_path(store),
+                     method: :delete,
+                     class: 'btn btn-warning',
+                     data: { confirm: '本当に削除しますか？'}
+  br
+    hr.line
+    br
+    = paginate(@stores)
